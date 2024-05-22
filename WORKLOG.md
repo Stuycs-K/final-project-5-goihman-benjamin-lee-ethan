@@ -13,9 +13,8 @@ info
 
 ## GROUP MEMBER 2
 
-### date x
-
-info
+### 5/22/2024
+Created abstract piece class with constructors, instance variables, and both public/abstract methods
 
 ### date y
 
