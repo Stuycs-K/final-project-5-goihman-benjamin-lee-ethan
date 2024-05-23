@@ -25,4 +25,5 @@ abstract class Piece{
   
   abstract boolean isValidMove();
   abstract int[][] validMoves();
+  abstract boolean move(int x, int y);
 }

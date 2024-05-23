@@ -16,6 +16,6 @@
 ### 5/22/2024
 Created abstract piece class with constructors, instance variables, and both public/abstract methods
 
-### date y
+### 5/23/2024
+Created skeleton for other pieces
 
-info
