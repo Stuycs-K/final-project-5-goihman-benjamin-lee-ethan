@@ -9,7 +9,7 @@
 ### 5/23/2024
 
 - Fixed board iniitnilziation correct params and true or false for black. 
-
+- Reorganized file struc"
 
 ## GROUP MEMBER 2
 
