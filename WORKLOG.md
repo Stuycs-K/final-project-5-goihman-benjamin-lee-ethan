@@ -1,10 +1,10 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Ben Goihman
 
-### date x
-
-info
+### 5/22/2024
+- Changed prototype to include selected piece
+- Made the board class main methods, select, get, move, and load all the pieces.
 
 ### date y
 
