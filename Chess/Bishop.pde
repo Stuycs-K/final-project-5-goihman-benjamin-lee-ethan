@@ -1,6 +1,6 @@
-class Rook extends Piece{
+class Bishop extends Piece{
   
-  Rook(PImage image, int x, int y, boolean teamColor){
+  Bishop(PImage image, int x, int y, boolean teamColor){
     super(image,x,y,teamColor);
   }
   

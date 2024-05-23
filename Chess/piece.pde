@@ -24,5 +24,5 @@ abstract class Piece{
   }
   
   abstract boolean isValidMove();
-  abstract Piece[][] validMoves();
+  abstract int[][] validMoves();
 }
