@@ -44,10 +44,14 @@ public class Board {
   public boolean isInCheck(){};
   public boolean isInCheckMate(){};
   public boolean isStaleMate(){};
-  public Piece get(int x, int y){
-    return board[x][y];
-  };
-  public boolean move(int x, int y){};
+public Piece get(int x, int y) {
+    if (x < 0 || x >= board.size || y < 0 || y >= booard[0].size) {
+        return null;
+    }
+    return board[y][x];
+}
+  public boolean move(int x, int y){
+  }
   public void resetBoard(){
     board[0][0] = new Piece(0, 0, "pieces/black-rook.png");
     board[0][1] = new Piece(1, 0, "pieces/black-knight.png");
@@ -82,5 +86,8 @@ public class Board {
         }
     }
   }
-  public boolean select(int x, int y){};
+  public boolean select(int x, int y){
+    selected = get(x,y);
+    return selected!=null;
+  };
 }
