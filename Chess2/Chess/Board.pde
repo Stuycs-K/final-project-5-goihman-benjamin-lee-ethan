@@ -5,7 +5,7 @@ public class Board {
   public Board(){
     this.turn = 0;
     this.selected = null;
-    
+    board = new Piece[8][8];
     // Initialize black pieces
     board[0][0] = new Rook(loadImage("pieces/black-rook.png"), 0, 0, false);
     board[0][1] = new Knight(loadImage("pieces/black-knight.png"), 0, 1, false);
