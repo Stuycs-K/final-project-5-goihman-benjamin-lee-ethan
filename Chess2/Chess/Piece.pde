@@ -23,7 +23,7 @@ abstract class Piece{
     return y;
   }
   
-  abstract boolean isValidMove(int x, int y);
+  abstract boolean isValidSquare(int x, int y);
   abstract int[][] validMoves();
   abstract boolean move(int x, int y);
 }
