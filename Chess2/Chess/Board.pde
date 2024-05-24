@@ -48,7 +48,7 @@ public class Board {
   public boolean isInCheckMate(){return false;};
   public boolean isStaleMate(){return false;};
   public Piece get(int x, int y) {
-    if (x < 0 || x >= board.size || y < 0 || y >= board[0].size) {
+    if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {
         return null;
     }
     return board[y][x];
