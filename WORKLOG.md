@@ -9,8 +9,8 @@
 ### 5/23/2024
 
 - Fixed board iniitnilziation correct params and true or false for black. 
-- Reorganized file struc"
-
+- Reorganized file struc
+- Made plain board appear
 ## GROUP MEMBER 2
 
 ### 5/22/2024
