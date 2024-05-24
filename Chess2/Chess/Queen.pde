@@ -4,17 +4,17 @@ class Queen extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidMove(int x, int y){
+  public boolean isValidSquare(int x, int y){
     return false;
   }
+  
+  
   public int[][] validMoves(){
     return new int[0][0];
   }
+  
   public boolean move(int newX, int newY){
-    if (isValidMove(x,y)){
-      //action
-      return true;
-    }
-    return false;
+    //action
+    return isValidSquare(newX,newY);
   }
 }
