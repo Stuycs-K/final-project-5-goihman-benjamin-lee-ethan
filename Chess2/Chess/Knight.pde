@@ -4,7 +4,7 @@ class Knight extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidMove(int x, int y){
+  public boolean isValidSquare(int x, int y){
     return false;
   }
   

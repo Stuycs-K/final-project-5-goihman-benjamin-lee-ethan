@@ -4,12 +4,9 @@ class Rook extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidSquare(int x, int y){
+  public boolean isValidSquare(int x, int y){  
     int myX = this.getX();
     int myY = this.getY();
-    if ((myX == x || myY == y) && (myX != x && myY !=y)){
-      return true;
-    }
     return false;
   }
   
