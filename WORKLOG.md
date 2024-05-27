@@ -23,4 +23,4 @@ Created skeleton for other pieces
 (According to commit history) Changed method isValidMove(int x, int y) to isValidSquare
 
 ### 5/27/2024
-Changed isValidSquare back to isValidMove(), started basic code for checking for overlapping pieces.
+Changed isValidSquare back to isValidMove(), started basic code for checking for pawn starting moves.
