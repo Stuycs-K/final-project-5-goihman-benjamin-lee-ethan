@@ -4,7 +4,7 @@ class King extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidSquare(int x, int y){
+  public boolean isValidMove(int x, int y){
     return false;
   }
   
@@ -15,6 +15,6 @@ class King extends Piece{
   
   public boolean move(int newX, int newY){
     //action
-    return isValidSquare(newX,newY);
+    return isValidMove(newX,newY);
   }
 }

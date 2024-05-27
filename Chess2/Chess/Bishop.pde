@@ -4,7 +4,7 @@ class Bishop extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidSquare(int x, int y){
+  public boolean isValidMove(int x, int y){
     int myX = this.getX();
     int myY = this.getY();
     
@@ -18,6 +18,6 @@ class Bishop extends Piece{
   
   public boolean move(int newX, int newY){
     //action
-    return isValidSquare(newX,newY);
+    return isValidMove(newX,newY);
   }
 }
