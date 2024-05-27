@@ -16,6 +16,11 @@
 ### 5/22/2024
 Created abstract piece class with constructors, instance variables, and both public/abstract methods
 
-### date y
+### 5/23/2024
+Created skeleton for other pieces
 
-info
+### 5/24/2024
+(According to commit history) Changed method isValidMove(int x, int y) to isValidSquare
+
+### 5/27/2024
+Changed isValidSquare back to isValidMove(), started basic code for checking for overlapping pieces.
