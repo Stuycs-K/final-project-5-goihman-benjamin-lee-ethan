@@ -5,8 +5,21 @@ class Pawn extends Piece{
   }
   
   public boolean isValidMove(int x, int y){
-    return false;
-  }
+    if (teamColor){
+      if (hasMoved != true){
+         return (y== this.getY()+1 || y == this.getY()+2)&& this.getX()==x;
+      }
+       return y== this.getY()+1 && this.getX() == x;
+     } else{
+     if (hasMoved != true){
+       return (y== this.getY()-1 || y == this.getY()-2)&& this.getX()==x;
+     }
+     return y == this.getY() -1 && this.getX() == x;
+     }
+     
+   }
+    
+    
   
   
   public int[][] validMoves(){
@@ -15,6 +28,7 @@ class Pawn extends Piece{
   
   public boolean move(int newX, int newY){
     //action
+
     return isValidMove(newX,newY);
   }
 }
