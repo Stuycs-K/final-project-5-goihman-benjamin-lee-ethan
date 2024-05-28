@@ -94,8 +94,13 @@ public class Board {
         }
     }
   }
-  public boolean select(int x, int y){
-    selected = get(x,y);
-    return selected!=null;
-  };
+public boolean select(int x, int y) {
+  Piece piece = get(x, y);
+  if (selected != piece) {
+    selected = piece; 
+  } else if (selected == piece) {
+    selected = null; 
+  }
+  return selected != null;
+}
 }

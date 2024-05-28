@@ -15,7 +15,7 @@
 ### 5/27/2024
 - Load in plainboard with pieces and reorganize the draw class
 - Reorganize file struc of the directory"
-
+- Added ability to select pieces and then unselect as well.
 
 ## Ethan Lee
 
