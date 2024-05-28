@@ -13,6 +13,10 @@ abstract class Piece{
     hasMoved = false;
   }
   
+  public PImage getImage(){
+    return image;
+  }
+  
   public boolean getColor(){
     return teamColor;
   }

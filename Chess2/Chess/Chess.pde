@@ -2,6 +2,7 @@ Board b;
 //Timer t;
 void draw(){}
 void setup() {
+  b = new Board();
   size(1400, 720); 
   int boardSize = 8;
   int squareSize = min(width, height) / boardSize; 
