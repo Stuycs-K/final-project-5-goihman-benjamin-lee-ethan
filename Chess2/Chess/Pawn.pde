@@ -9,12 +9,14 @@ class Pawn extends Piece{
       if (b.get(x+1,y+1)!= null && b.get(x+1,y+1).getColor() != true){
         return true;
       }
+      //check diag right capture 
       if (b.get(x-1,y+1)!= null && b.get(x-1,y+1).getColor() != true){
         return true;
       }
+      //check diag left capture
       if (hasMoved != true){
          return (y== this.getY()+1 || y == this.getY()+2)&& this.getX()==x;
-      }
+      }//check first move double jump
        return y== this.getY()+1 && this.getX() == x;
      } else{
       if (b.get(x+1,y-1)!= null && b.get(x+1,y-1).getColor() != false){
