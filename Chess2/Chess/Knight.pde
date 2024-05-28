@@ -5,7 +5,10 @@ class Knight extends Piece{
   }
   
   public boolean isValidMove(int x, int y){
-    return (x-2 == this.getX() && (y == this.getY() +1 || y==this.getY()-1) || (x+2 == this.getX() && (y == this.getY() +1 || y==this.getY()-1)) || (y-2 == this.getY() && (x == this.getX() +1 || x==this.getX()-1))|| (y+2 == this.getX() && (x == this.getX() +1 || x==this.getX()-1)))&&(b.get(x,y)== null || b.get(x,y).getColor() != this.getColor());
+    if (x < 8 && x > 0 && y > 0 && y <7){
+      return (x-2 == this.getX() && (y == this.getY() +1 || y==this.getY()-1) || (x+2 == this.getX() && (y == this.getY() +1 || y==this.getY()-1)) || (y-2 == this.getY() && (x == this.getX() +1 || x==this.getX()-1))|| (y+2 == this.getX() && (x == this.getX() +1 || x==this.getX()-1)))&&(b.get(x,y)== null || b.get(x,y).getColor() != this.getColor());
+    }
+    return false;
   }
   
   

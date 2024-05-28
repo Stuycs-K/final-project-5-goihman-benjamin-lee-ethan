@@ -5,6 +5,9 @@ class Pawn extends Piece{
   }
   
   public boolean isValidMove(int x, int y){
+    if (b.get(x,y) == null){
+      return false;
+    }
     if (teamColor){
       if (b.get(x+1,y+1)!= null && b.get(x+1,y+1).getColor() != true){
         return true;
@@ -17,7 +20,7 @@ class Pawn extends Piece{
       if (hasMoved != true){
          return (y== this.getY()+1 || y == this.getY()+2)&& this.getX()==x;
       }//check first move double jump
-       return y== this.getY()+1 && this.getX() == x;
+       return y== this.getY()+1 && this.getX() == x && b.get(x,y-1)!= null;
      } else{
       if (b.get(x+1,y-1)!= null && b.get(x+1,y-1).getColor() != false){
         return true;
