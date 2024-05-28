@@ -4,10 +4,17 @@ class King extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidMove(){
+  public boolean isValidMove(int x, int y){
     return false;
   }
+  
+  
   public int[][] validMoves(){
     return new int[0][0];
+  }
+  
+  public boolean move(int newX, int newY){
+    //action
+    return isValidMove(newX,newY);
   }
 }

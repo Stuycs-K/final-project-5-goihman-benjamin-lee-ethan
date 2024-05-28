@@ -4,10 +4,31 @@ class Pawn extends Piece{
     super(image,x,y,teamColor);
   }
   
-  public boolean isValidMove(){
-    return false;
-  }
+  public boolean isValidMove(int x, int y){
+    if (teamColor){
+      if (hasMoved != true){
+         return (y== this.getY()+1 || y == this.getY()+2)&& this.getX()==x;
+      }
+       return y== this.getY()+1 && this.getX() == x;
+     } else{
+     if (hasMoved != true){
+       return (y== this.getY()-1 || y == this.getY()-2)&& this.getX()==x;
+     }
+     return y == this.getY() -1 && this.getX() == x;
+     }
+     
+   }
+    
+    
+  
+  
   public int[][] validMoves(){
     return new int[0][0];
+  }
+  
+  public boolean move(int newX, int newY){
+    //action
+
+    return isValidMove(newX,newY);
   }
 }

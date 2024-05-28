@@ -13,6 +13,10 @@ abstract class Piece{
     hasMoved = false;
   }
   
+  public PImage getImage(){
+    return image;
+  }
+  
   public boolean getColor(){
     return teamColor;
   }
@@ -23,6 +27,7 @@ abstract class Piece{
     return y;
   }
   
-  abstract boolean isValidMove();
+  abstract boolean isValidMove(int x, int y);
   abstract int[][] validMoves();
+  abstract boolean move(int x, int y);
 }
