@@ -17,6 +17,9 @@
 - Reorganize file struc of the directory"
 - Added ability to select pieces and then unselect as well.
 
+###
+- Add logic to know when selecting a new piece or moving
+
 ## Ethan Lee
 
 ### 5/22/2024

@@ -5,7 +5,7 @@ void setup() {
   b = new Board();
   drawBoard();
   drawPieces();
-}
+ }
 
 void draw() {
 
@@ -21,16 +21,14 @@ void mouseClicked() {
   int x = (mouseX - offsetX) / squareSize;
   int y = (mouseY - offsetY) / squareSize; // Do not flip the y-coordinate
   if (x >= 0 && x < boardSize && y >= 0 && y < boardSize) {
-    b.select(x, y);
-    println(x, y); // Print coordinates for debugging
     
-    // Redraw the board to reflect the selection
-    drawBoard();
-
     // Highlight the selected square
-    if (b.selected != null) {
+    if (b.select(x,y)) {
+        drawBoard();
         fill(255, 255, 200); // Light yellow highlight color
+        if(b.selected!=null){
         rect(offsetX + x * squareSize, offsetY + y * squareSize, squareSize, squareSize);
+      }
     }
     
     // Redraw the pieces

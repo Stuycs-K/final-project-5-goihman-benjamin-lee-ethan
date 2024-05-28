@@ -96,11 +96,18 @@ public class Board {
   }
 public boolean select(int x, int y) {
   Piece piece = get(x, y);
-  if (selected != piece) {
-    selected = piece; 
-  } else if (selected == piece) {
-    selected = null; 
+   
+  if(piece==null){return false;}
+  if(piece==selected){
+    selected=null;
+    return true;
   }
-  return selected != null;
+  if(piece.getColor()==(turn%2==1)){
+    selected=piece;
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 }
