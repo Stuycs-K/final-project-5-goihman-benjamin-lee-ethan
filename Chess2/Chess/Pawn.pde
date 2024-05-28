@@ -19,7 +19,9 @@ class Pawn extends Piece{
      
    }
     
-    
+  public boolean promote(int x, int y){
+    return true;
+  }
   
   
   public int[][] validMoves(){
