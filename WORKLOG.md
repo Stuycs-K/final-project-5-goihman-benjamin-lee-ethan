@@ -33,3 +33,8 @@ Created skeleton for other pieces
 
 ### 5/27/2024
 Changed isValidSquare back to isValidMove(), started basic code for checking for pawn starting moves.
+
+### 5/28/2024
+- Created parameters + finished isValidMove for Knight Pieces
+- Finished pawn valid moves excluding en passant
+- Altered both to check for null and no jumping over pieces (unless Knight)
