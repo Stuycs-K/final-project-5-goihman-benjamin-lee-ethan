@@ -1,7 +1,7 @@
 abstract class Piece{
   final PImage image;
   final boolean teamColor;
-  final int x; final int y;
+  int x; int y;
   final boolean hasMoved;
   
   
