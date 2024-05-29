@@ -53,7 +53,25 @@ public class Board {
     }
     return board[y][x];
   }
-  public boolean move(int x, int y){return false;}
+
+public boolean move(int x, int y) {
+  if (selected == null) {
+    return false;
+  }
+  if (selected.isValidMove(x, y)) {
+    Piece target = get(x, y);
+    if (target == null || target.getColor() != selected.getColor()) {
+      board[selected.getY()][selected.getX()] = null;
+      board[y][x] = selected;
+      selected.x = x;
+      selected.y = y;
+      selected = null;
+      turn++;
+      return true;
+    }
+  }
+  return false;
+}
   
   public void resetBoard(){
     this.turn = 0;
@@ -96,18 +114,23 @@ public class Board {
   }
 public boolean select(int x, int y) {
   Piece piece = get(x, y);
-   
-  if(piece==null){return false;}
-  if(piece==selected){
-    selected=null;
-    return true;
-  }
-  if(piece.getColor()==(turn%2==1)){
-    selected=piece;
-    return true;
-  }
-  else{
+
+  if (piece == null) {
     return false;
   }
+
+  if (piece == selected) {
+    selected = null;
+    return true;
+  }
+
+  if (piece.getColor() == (turn % 2 == 1)) {
+    selected = piece;
+    return true;
+  }
+
+  return false;
 }
+
+
 }

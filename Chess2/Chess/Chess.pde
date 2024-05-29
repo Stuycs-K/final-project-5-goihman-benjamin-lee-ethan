@@ -19,22 +19,31 @@ void mouseClicked() {
   int offsetY = (height - (squareSize * boardSize)) / 2;
 
   int x = (mouseX - offsetX) / squareSize;
-  int y = (mouseY - offsetY) / squareSize; // Do not flip the y-coordinate
+  int y = (mouseY - offsetY) / squareSize; 
+  println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
+  println("Translated to board coordinates: (" + x + ", " + y + ")");
+  
   if (x >= 0 && x < boardSize && y >= 0 && y < boardSize) {
-    
-    // Highlight the selected square
-    if (b.select(x,y)) {
-        drawBoard();
-        fill(255, 255, 200); // Light yellow highlight color
-        if(b.selected!=null){
-        rect(offsetX + x * squareSize, offsetY + y * squareSize, squareSize, squareSize);
-      }
+    if (b.select(x, y)) {
+      println("Selection successful");
+    } else {
+      println("Selection failed or move invalid.");
     }
-    
-    // Redraw the pieces
+
+    drawBoard();
+    if (b.selected != null) {
+      fill(255, 255, 200); // Light yellow highlight color
+      rect(offsetX + x * squareSize, offsetY + y * squareSize, squareSize, squareSize);
+    }
+
     drawPieces();
+  } else {
+    println("Click out of board bounds.");
   }
 }
+
+
+
 
 void drawBoard() {
   int boardSize = 8;

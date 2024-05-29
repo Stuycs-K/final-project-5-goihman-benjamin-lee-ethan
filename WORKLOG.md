@@ -17,8 +17,10 @@
 - Reorganize file struc of the directory"
 - Added ability to select pieces and then unselect as well.
 
-###
+### 5/28/2024
 - Add logic to know when selecting a new piece or moving
+- Implement move func and better select
+
 
 ## Ethan Lee
 
