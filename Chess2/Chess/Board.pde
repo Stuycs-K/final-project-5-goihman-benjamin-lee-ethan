@@ -49,7 +49,7 @@ public class Board {
   public boolean isStaleMate(){return false;};
   public Piece get(int x, int y) {
     if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {
-        return null;
+      return null;
     }
     return board[y][x];
   }
@@ -114,7 +114,6 @@ public boolean move(int x, int y) {
   }
 public boolean select(int x, int y) {
   Piece piece = get(x, y);
-
   if (piece == null) {
     return false;
   }
@@ -124,11 +123,10 @@ public boolean select(int x, int y) {
     return true;
   }
 
-  if (piece.getColor() == (turn % 2 == 1)) {
+  if (piece.getColor() == (turn % 2 == 0)) {
     selected = piece;
     return true;
   }
-
   return false;
 }
 
