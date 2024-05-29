@@ -40,3 +40,8 @@ Changed isValidSquare back to isValidMove(), started basic code for checking for
 - Created parameters + finished isValidMove for Knight Pieces
 - Finished pawn valid moves excluding en passant
 - Altered both to check for null and no jumping over pieces (unless Knight)
+
+
+### 5/29/2024
+- Changed to arraylist for validmoves 
+- Rook check horizontal and vertical
