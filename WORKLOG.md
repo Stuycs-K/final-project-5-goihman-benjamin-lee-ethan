@@ -21,6 +21,10 @@
 - Add logic to know when selecting a new piece or moving
 - Implement move func and better select
 
+### 5/29/2024
+- Allow user to move pieces and it deletes the old piece
+- Fix some errors in loop and make skeleton code
+
 
 ## Ethan Lee
 

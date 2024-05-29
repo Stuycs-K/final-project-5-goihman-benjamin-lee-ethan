@@ -5,7 +5,7 @@ class Rook extends Piece{
   }
   
   public boolean isValidMove(int x, int y){  
-    return false;
+    return validMoves().contains(new int[]{x,y});
   }
   
   
@@ -36,6 +36,7 @@ class Rook extends Piece{
         int[] f = {myX,myY-1};
         endList.add(f);
       }
+      myY--;
     }
     myY = this.getY();
     while (myY < 8 && b.get(myX,myY+1) != null){
@@ -43,6 +44,7 @@ class Rook extends Piece{
         int[] f = {myX,myY+1};
         endList.add(f);
       }
+      myY++;
     }
     
     return endList;
