@@ -59,11 +59,11 @@ public boolean move(int x, int y) {
     return false;
   }
   if(true){//if (selected.isValidMove(x, y)) {
-    print(x,y);
-    print(selected.x,selected.y);
+      println(selected.x,selected.y);
+      print(x,y);
     Piece target = get(x, y);
     if (target == null || target.getColor() != selected.getColor()) {
-      board[7-selected.getY()][selected.getX()] = null;
+      board[selected.getX()][selected.getY()] = null;
       board[y][x] = selected;
       selected = null;
       turn++;
