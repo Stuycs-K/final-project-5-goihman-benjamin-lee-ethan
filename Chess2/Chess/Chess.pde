@@ -27,7 +27,8 @@ void mouseClicked() {
     if (b.select(x, y)) {
       println("Selection successful");
     } else {
-      println("Selection failed or move invalid.");
+      b.move(x,y);
+      b.selected=null;
     }
 
     drawBoard();
