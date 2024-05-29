@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 abstract class Piece{
   final PImage image;
   final boolean teamColor;
@@ -28,6 +29,6 @@ abstract class Piece{
   }
   
   abstract boolean isValidMove(int x, int y);
-  abstract int[][] validMoves();
+  abstract ArrayList<int[]> validMoves();
   abstract boolean move(int x, int y);
 }

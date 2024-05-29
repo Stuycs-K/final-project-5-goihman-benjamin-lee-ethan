@@ -12,8 +12,9 @@ class Knight extends Piece{
   }
   
   
-  public int[][] validMoves(){
-    return new int[0][0];
+  public ArrayList<int[]> validMoves(){
+    ArrayList<int[]> f = new ArrayList<int[]>();
+    return f;
   }
   
   public boolean move(int newX, int newY){
