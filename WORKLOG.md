@@ -26,6 +26,12 @@
 - Fix some errors in loop and make skeleton code
 - Add better checks for nulls and other more edge cases as well as format Chess
 
+### 5/30/2024
+
+- Redo the board class and the main to use row, col to improve simplicty
+- Redo the internal board so that it starts with white.
+
+
 ## Ethan Lee
 
 ### 5/22/2024
