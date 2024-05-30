@@ -50,25 +50,25 @@ public class Board {
   public boolean isInCheck(){return false;};
   public boolean isInCheckMate(){return false;};
   public boolean isStaleMate(){return false;};
-  public Piece get(int x, int y) {
-    if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) {
+  public Piece get(int col, int row) {
+    if (0 < col || col >= board.length || row < 0 || row >= board.length) {
       return null;
     }
-    return board[y][x];
+    return board[row][col];
   }
 
-public boolean move(int x, int y) {
+public boolean move(int col, int row) {
   if (selected == null) {
     return false;
   }
   
-  if (selected.isValidMove(x, y)) {
-    Piece target = get(x, y);
+  if (selected.isValidMove(col, row)) {
+    Piece target = get(col, row);
     if (target == null || target.getColor() != selected.getColor()) {
       board[selected.getRow()][selected.getCol()] = null;
-      board[y][x] = selected;
-      selected.x = x;
-      selected.y = y;
+      board[row][col] = selected;
+      selected.row = row;
+      selected.col = col;
       selected = null;
       turn++;
       return true;
