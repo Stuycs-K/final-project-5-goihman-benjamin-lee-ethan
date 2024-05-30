@@ -1,7 +1,7 @@
 class Knight extends Piece{
   
-  Knight(PImage image, int x, int y, boolean teamColor){
-    super(image,x,y,teamColor);
+  Knight(PImage image, int col, int row, boolean teamColor){
+    super(image,col,row,teamColor);
   }
   
   public boolean isValidMove(int x, int y){

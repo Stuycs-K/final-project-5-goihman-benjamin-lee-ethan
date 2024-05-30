@@ -1,11 +1,11 @@
 class Rook extends Piece{
   
-  Rook(PImage image, int x, int y, boolean teamColor){
-    super(image,x,y,teamColor);
+  Rook(PImage image, int col, int row, boolean teamColor){
+    super(image,col,row,teamColor);
   }
   
-  public boolean isValidMove(int x, int y){  
-    return validMoves().contains(new int[]{x,y});
+  public boolean isValidMove(int col, int row){  
+    return validMoves().contains(new int[]{col,row});
   }
   
   

@@ -28,7 +28,6 @@ abstract class Piece{
     return col;
   }
   
-  abstract boolean isValidMove(int col, int row);
   abstract ArrayList<int[]> validMoves();
   abstract boolean move(int col, int row);
 }

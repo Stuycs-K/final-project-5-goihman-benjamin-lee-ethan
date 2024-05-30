@@ -1,7 +1,7 @@
 class King extends Piece{
   
-  King(PImage image, int x, int y, boolean teamColor){
-    super(image,x,y,teamColor);
+  King(PImage image, int col, int row, boolean teamColor){
+    super(image,col,row,teamColor);
   }
   
   public boolean isValidMove(int x, int y){

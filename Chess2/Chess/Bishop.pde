@@ -1,13 +1,10 @@
 class Bishop extends Piece{
   
-  Bishop(PImage image, int x, int y, boolean teamColor){
-    super(image,x,y,teamColor);
+  Bishop(PImage image, int col, int row, boolean teamColor){
+    super(image,col,row,teamColor);
   }
   
   public boolean isValidMove(int x, int y){
-    int myX = this.getX();
-    int myY = this.getY();
-    
     return false;
   }
   
