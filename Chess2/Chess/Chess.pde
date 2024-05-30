@@ -5,12 +5,10 @@ void setup() {
   b = new Board();
   drawBoard();
   drawPieces();
- }
-
-void draw() {
-
 }
 
+void draw() {
+}
 
 void mouseClicked() {
   int boardSize = 8;
@@ -31,6 +29,7 @@ void mouseClicked() {
         println("Selection successful");
       } else {
         if (b.selected != null && b.move(x, y)) {
+          b.selected = null;
           println("Move successful");
         } else {
           println("Invalid move");
@@ -38,6 +37,7 @@ void mouseClicked() {
       }
     } else {
       if (b.selected != null && b.move(x, y)) {
+        b.selected = null;
         println("Move successful");
       } else {
         b.selected = null;
@@ -48,16 +48,13 @@ void mouseClicked() {
     drawBoard();
     if (b.selected != null) {
       fill(255, 255, 200);
-      rect(offsetX + b.selected.getX() * squareSize, offsetY + (7 - b.selected.getY()) * squareSize, squareSize, squareSize);
+      rect(offsetX + x * squareSize, offsetY + (7-y) * squareSize, squareSize, squareSize);
     }
     drawPieces();
   } else {
     println("Click out of board bounds.");
   }
 }
-
-
-
 
 void drawBoard() {
   int boardSize = 8;
@@ -78,8 +75,6 @@ void drawBoard() {
     }
     isLightBlue = !isLightBlue;
   }
-
-
 }
 
 void drawPieces() {
