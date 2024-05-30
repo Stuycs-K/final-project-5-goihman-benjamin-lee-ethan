@@ -81,8 +81,8 @@ public boolean move(int col, int row) {
     }
 
   }
-public boolean select(int x, int y) {
-  Piece piece = get(x, y);
+public boolean select(int col, int row) {
+  Piece piece = get(col, row);
   if (piece == null) {
     return false;
   }
