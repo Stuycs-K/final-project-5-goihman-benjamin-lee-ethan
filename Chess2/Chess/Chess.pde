@@ -16,19 +16,19 @@ void mouseClicked() {
   int offsetX = (width - (squareSize * boardSize)) / 2;
   int offsetY = (height - (squareSize * boardSize)) / 2;
 
-  int x = (mouseX - offsetX) / squareSize;
-  int y = 7 - (mouseY - offsetY) / squareSize;
+  int col = (mouseX - offsetX) / squareSize;
+  int row = (mouseY - offsetY) / squareSize;
   println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
-  println("Translated to board coordinates: (" + x + ", " + y + ")");
+  println("Translated to board coordinates: (" + col + ", " + row + ")");
 
-  if (x >= 0 && x < boardSize && y >= 0 && y < boardSize) {
-    Piece clickedPiece = b.get(x, y);
+  if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
+    Piece clickedPiece = b.get(col, row);
 
     if (clickedPiece != null) {
-      if (b.select(x, y)) {
+      if (b.select(col, row)) {
         println("Selection successful");
       } else {
-        if (b.selected != null && b.move(x, y)) {
+        if (b.selected != null && b.move(col, row)) {
           b.selected = null;
           println("Move successful");
         } else {
@@ -36,7 +36,7 @@ void mouseClicked() {
         }
       }
     } else {
-      if (b.selected != null && b.move(x, y)) {
+      if (b.selected != null && b.move(col, row)) {
         b.selected = null;
         println("Move successful");
       } else {
@@ -48,7 +48,7 @@ void mouseClicked() {
     drawBoard();
     if (b.selected != null) {
       fill(255, 255, 200);
-      rect(offsetX + x * squareSize, offsetY + (7-y) * squareSize, squareSize, squareSize);
+      rect(offsetX + col * squareSize, offsetY + row * squareSize, squareSize, squareSize);
     }
     drawPieces();
   } else {
