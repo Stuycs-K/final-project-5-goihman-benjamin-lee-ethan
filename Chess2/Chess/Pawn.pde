@@ -43,6 +43,14 @@ class Pawn extends Piece{
   
   public ArrayList<int[]> validMoves(){
     ArrayList<int[]> f = new ArrayList<int[]>();
+    for (int x = 0; x < 8; x++){
+      for (int y = 0; y < 8; y++){
+        if (isValidMove(x,y)){
+          int[] i = new int[]{x,y};
+          f.add(i);
+        }
+      }
+    }
     return f;
   }
   
