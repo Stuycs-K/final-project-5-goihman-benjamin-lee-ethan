@@ -62,7 +62,7 @@ public boolean move(int x, int y) {
   if (selected.isValidMove(x, y)) {
     Piece target = get(x, y);
     if (target == null || target.getColor() != selected.getColor()) {
-      board[selected.getY()][selected.getX()] = null;
+      board[selected.getX()][selected.getY()] = null;
       board[y][x] = selected;
       selected.x = x;
       selected.y = y;
