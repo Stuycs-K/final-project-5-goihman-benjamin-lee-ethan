@@ -2,14 +2,14 @@ import java.util.ArrayList;
 abstract class Piece{
   final PImage image;
   final boolean teamColor;
-  int x; int y;
+  int row; int col;
   final boolean hasMoved;
   
   
-  Piece(PImage image, int x, int y, boolean teamColor){
+  Piece(PImage image, int col, int row, boolean teamColor){
     this.image = image;
-    this.x = x;
-    this.y = y;
+    this.col = col;
+    this.row = row;
     this.teamColor = teamColor;
     hasMoved = false;
   }
@@ -21,14 +21,14 @@ abstract class Piece{
   public boolean getColor(){
     return teamColor;
   }
-  public int getX(){
-    return x;
+  public int getRow(){
+    return row;
    }
-  public int getY(){
-    return y;
+  public int getCol(){
+    return col;
   }
   
-  abstract boolean isValidMove(int x, int y);
+  abstract boolean isValidMove(int col, int row);
   abstract ArrayList<int[]> validMoves();
-  abstract boolean move(int x, int y);
+  abstract boolean move(int col, int row);
 }
