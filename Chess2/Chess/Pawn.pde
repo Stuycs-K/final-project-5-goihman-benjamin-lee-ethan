@@ -36,6 +36,7 @@ class Pawn extends Piece{
   } 
   else{
     //do the same as lines 15-25 but for black team
+    return f;
   }
   }
   
