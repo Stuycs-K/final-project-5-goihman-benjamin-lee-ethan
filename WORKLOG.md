@@ -24,7 +24,7 @@
 ### 5/29/2024
 - Allow user to move pieces and it deletes the old piece
 - Fix some errors in loop and make skeleton code
-
+- Add better checks for nulls and other more edge cases as well as format Chess
 
 ## Ethan Lee
 
