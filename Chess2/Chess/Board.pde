@@ -58,7 +58,7 @@ public boolean move(int x, int y) {
   if (selected == null) {
     return false;
   }
- if (selected.isValidMove(x, y)) {
+ if (true){ //if (selected.isValidMove(x, y)) {
       println(selected.x,selected.y);
       print(x,y);
     Piece target = get(x, y);
