@@ -11,7 +11,7 @@ public class Board {
   public boolean isInCheckMate(){return false;};
   public boolean isStaleMate(){return false;};
   public Piece get(int col, int row) {
-    if (0 > col || col >= board.length || row > 0 || row >= board.length) {
+    if (0 > col || col >= board.length || row < 0 || row >= board.length) {
       return null;
     }
     return board[row][col];
