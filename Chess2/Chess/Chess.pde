@@ -36,10 +36,18 @@ void mouseClicked() {
         }
       }
     } else {
-      if (b.selected != null && b.move(col, row)) {
-        b.selected = null;
-        println("Move successful");
-      } else {
+      if (b.selected != null) {
+        ArrayList<int[]> validMoves = b.selected.validMoves();
+        for (int[] move : validMoves) {
+          if (move[0] == col && move[1] == row) {
+            b.move(col, row);
+            b.selected = null;
+            println("Move successful");
+            break;
+          }
+        }
+      }
+      if (b.selected != null) {
         b.selected = null;
         println("Deselected piece");
       }
@@ -48,13 +56,23 @@ void mouseClicked() {
     drawBoard();
     if (b.selected != null) {
       fill(255, 255, 200);
-      rect(offsetX + col * squareSize, offsetY + row * squareSize, squareSize, squareSize);
+      rect(offsetX + b.selected.getCol() * squareSize, offsetY + b.selected.getRow() * squareSize, squareSize, squareSize);
+
+      fill(0, 255, 0, 100);
+      noStroke();
+      ArrayList<int[]> validMoves = b.selected.validMoves();
+      for (int[] move : validMoves) {
+        int moveCol = move[0];
+        int moveRow = move[1];
+        ellipse(offsetX + moveCol * squareSize + squareSize / 2, offsetY + moveRow * squareSize + squareSize / 2, squareSize / 2, squareSize / 2);
+      }
     }
     drawPieces();
   } else {
     println("Click out of board bounds.");
   }
 }
+
 
 void drawBoard() {
   int boardSize = 8;
