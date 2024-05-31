@@ -17,26 +17,22 @@ public class Board {
     return board[row][col];
   }
 
-public boolean move(int col, int row) {
+boolean move(int col, int row) {
+  if (col < 0 || col >= 8 || row < 0 || row >= 8) {
+    return false;
+  }
   if (selected == null) {
     return false;
   }
-  
-  if (selected.isValidMove(col, row)) {
-    Piece target = get(col, row);
-    if (target == null || target.getColor() != selected.getColor()) {
-      board[selected.getRow()][selected.getCol()] = null;
-      board[row][col] = selected;
-      selected.row = row;
-      selected.col = col;
-      selected = null;
-      turn++;
-      return true;
-    }
-  }
-  
-  return false;
+  board[selected.getRow()][selected.getCol()] = null;
+  board[row][col] = selected;
+  selected.row = row;
+  selected.col = col;
+  selected = null;
+  turn++;
+  return true;
 }
+
   
   public void resetBoard(){
     this.turn = 0;
