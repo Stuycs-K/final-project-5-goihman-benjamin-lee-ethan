@@ -11,40 +11,49 @@ class Bishop extends Piece{
     int col = this.getCol();
     int row = this.getRow();
     
-    while (col > 0 && b.get(col-1,row-1)!=null){
-      if (b.get(col-1,row-1).getColor() != this.getColor()){
+    while (col > 0 && row>0|| b.get(col-1,row-1)!=null){
+      if (b.get(col-1,row-1)==null||b.get(col-1,row-1).getColor() != this.getColor()){
         int[] f = {col-1,row-1};
         endList.add(f);
       }
       col--;
+      row--;
     }
     col = this.getCol();
     row = this.getRow();
-    while (col < 8 && b.get(col+1,row+1)!=null){
+    while (col < 8 && row<8|| b.get(col+1,row+1)!=null){
+      //if (b.get(col+1,row+1)==null){
+      //  int[] f = {col+1,row+1};
+      //  endList.add(f);
+      //}
       if (b.get(col+1,row+1).getColor() != this.getColor()){
         int[] f = {col+1,row+1};
         endList.add(f);
-
+        
       }
       col++;
+      row++;
     }
     col = this.getCol();
     row = this.getRow();
-    while (row > 0 && b.get(col+1,row-1) != null){
+    while (row > 0 && col < 8|| b.get(col+1,row-1) != null){
       if (b.get(col+1,row-1).getColor() != this.getColor()){
-        int[] f = {col,row-1};
+        int[] f = {col+1,row-1};
         endList.add(f);
+        
       }
+      col++;
       row--;
     }
 
     col = this.getCol();
     row = this.getRow();
-    while (row < 8 && b.get(col-1,row+1) != null){
-      if (b.get(col-1,row+1).getColor() != this.getColor()){
+    while (row < 8 && col >0|| b.get(col-1,row+1) != null){
+      if (b.get(col-1,row+1)==null||b.get(col-1,row+1).getColor() != this.getColor()){
         int[] f = {col-1,row+1};
         endList.add(f);
       }
+      col--;
       row++;
     }
     
