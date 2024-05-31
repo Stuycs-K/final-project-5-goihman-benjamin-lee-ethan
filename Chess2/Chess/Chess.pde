@@ -63,14 +63,14 @@ void drawBoard() {
   int offsetY = (height - (squareSize * boardSize)) / 2;
   boolean isLightBlue = true;
 
-  for (int y = 0; y < boardSize; y++) {
-    for (int x = 0; x < boardSize; x++) {
+  for (int row = 0; row < boardSize; row++) {
+    for (int col = 0; col < boardSize; col++) {
       if (isLightBlue) {
         fill(173, 216, 230); // Light Blue
       } else {
         fill(255); // White
       }
-      rect(offsetX + x * squareSize, offsetY + y * squareSize, squareSize, squareSize);
+      rect(offsetX + col * squareSize, offsetY + row * squareSize, squareSize, squareSize);
       isLightBlue = !isLightBlue;
     }
     isLightBlue = !isLightBlue;
@@ -83,11 +83,11 @@ void drawPieces() {
   int offsetX = (width - (squareSize * boardSize)) / 2;
   int offsetY = (height - (squareSize * boardSize)) / 2;
 
-  for (int y = 0; y < boardSize; y++) {
-    for (int x = 0; x < boardSize; x++) {
-      Piece piece = b.get(x, y);
+  for (int row = 0; row < boardSize; row++) {
+    for (int col = 0; row < boardSize; col++) {
+      Piece piece = b.get(col, row);
       if (piece != null) {
-        image(piece.getImage(), offsetX + x * squareSize, offsetY + (7-y) * squareSize, squareSize, squareSize); // Flip the y-coordinate to match the board's orientation
+        image(piece.getImage(), offsetX + col * squareSize, offsetY + row * squareSize, squareSize, squareSize); 
       }
     }
   }
