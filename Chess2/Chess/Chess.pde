@@ -38,7 +38,6 @@ void mouseClicked() {
     } else {
       if (b.selected != null) {
         ArrayList<int[]> validMoves = b.selected.validMoves();
-        print(validMoves);
         for (int[] move : validMoves) {
           if (move[0] == col && move[1] == row) {
             b.move(col, row);
