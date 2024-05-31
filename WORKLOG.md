@@ -30,8 +30,8 @@
 
 - Redo the board class and the main to use row, col to improve simplicty
 - Redo the internal board so that it starts with white.
-
-
+- Redo whole main class to row and col to reduce unneeded complexity
+- Change how move works, so draw circles to show valid moves nad allow moves in that location.
 ## Ethan Lee
 
 ### 5/22/2024
