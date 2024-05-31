@@ -102,7 +102,7 @@ void drawPieces() {
   int offsetY = (height - (squareSize * boardSize)) / 2;
 
   for (int row = 0; row < boardSize; row++) {
-    for (int col = 0; row < boardSize; col++) {
+    for (int col = 0; col < boardSize; col++) {
       Piece piece = b.get(col, row);
       if (piece != null) {
         image(piece.getImage(), offsetX + col * squareSize, offsetY + row * squareSize, squareSize, squareSize); 

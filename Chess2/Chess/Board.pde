@@ -11,7 +11,7 @@ public class Board {
   public boolean isInCheckMate(){return false;};
   public boolean isStaleMate(){return false;};
   public Piece get(int col, int row) {
-    if (0 < col || col >= board.length || row < 0 || row >= board.length) {
+    if (0 > col || col >= board.length || row > 0 || row >= board.length) {
       return null;
     }
     return board[row][col];
@@ -49,7 +49,7 @@ boolean move(int col, int row) {
     board[0][6] = new Knight(loadImage("pieces/white-knight.png"), 6, 0, true);
     board[0][7] = new Rook(loadImage("pieces/white-rook.png"), 7, 0, true);
     
-    for (int col = 0; col < col; col++) {
+    for (int col = 0; col < 8; col++) {
         board[1][col] = new Pawn(loadImage("pieces/white-pawn.png"), col, 1, true);
     }
     
