@@ -4,12 +4,9 @@ class Queen extends Piece{
     super(image,col,row,teamColor);
   }
   
-  public boolean isValidMove(int col, int row){
-    return false;
-  }
+ 
   
-  
-  public ArrayList validMoves(){
+  public ArrayList<int[]> validMoves(){
      ArrayList<int[]> endList = new ArrayList<int[]>();
     return endList;
   }

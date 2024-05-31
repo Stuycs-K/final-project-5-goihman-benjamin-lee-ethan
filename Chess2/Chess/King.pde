@@ -3,10 +3,7 @@ class King extends Piece{
   King(PImage image, int col, int row, boolean teamColor){
     super(image,col,row,teamColor);
   }
-  
-  public boolean isValidMove(int x, int y){
-    return false;
-  }
+
   
   
   public ArrayList<int[]> validMoves(){
