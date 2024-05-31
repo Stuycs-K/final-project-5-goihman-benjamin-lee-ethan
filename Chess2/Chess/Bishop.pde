@@ -11,9 +11,13 @@ class Bishop extends Piece{
     int col = this.getCol();
     int row = this.getRow();
     
-    while (col > 0 && row>0|| b.get(col-1,row-1)!=null){
-      if (b.get(col-1,row-1)==null||b.get(col-1,row-1).getColor() != this.getColor()){
-        int[] f = {col-1,row-1};
+    while (col > 0 && row>0|| b.get(col,row)!=null){
+      if (b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor()){
+        int[] f = {col,row};
+        endList.add(f);
+      }
+      if (b.get(col,row)==null){
+        int[] f = {col,row};
         endList.add(f);
       }
       col--;
@@ -26,10 +30,13 @@ class Bishop extends Piece{
       //  int[] f = {col+1,row+1};
       //  endList.add(f);
       //}
-      if (b.get(col+1,row+1).getColor() != this.getColor()){
+      if (b.get(col+1,row+1) != null && b.get(col+1,row+1).getColor() != this.getColor()){
+        int[] f = {col+1,row+1};
+        endList.add(f); 
+      }
+      if (b.get(col-1,row+1)==null){
         int[] f = {col+1,row+1};
         endList.add(f);
-        
       }
       col++;
       row++;
@@ -37,10 +44,13 @@ class Bishop extends Piece{
     col = this.getCol();
     row = this.getRow();
     while (row > 0 && col < 8|| b.get(col+1,row-1) != null){
-      if (b.get(col+1,row-1).getColor() != this.getColor()){
+      if (b.get(col+1,row-1) != null && b.get(col+1,row-1).getColor() != this.getColor()){
         int[] f = {col+1,row-1};
         endList.add(f);
-        
+      }
+      if (b.get(col+1,row-1)==null){
+        int[] f = {col-1,row+1};
+        endList.add(f);
       }
       col++;
       row--;
@@ -48,8 +58,12 @@ class Bishop extends Piece{
 
     col = this.getCol();
     row = this.getRow();
-    while (row < 8 && col >0|| b.get(col-1,row+1) != null){
+    while (b.get(col-1,row+1) != null && row < 8 && col >0|| b.get(col-1,row+1) != null){
       if (b.get(col-1,row+1)==null||b.get(col-1,row+1).getColor() != this.getColor()){
+        int[] f = {col-1,row+1};
+        endList.add(f);
+      }
+      if (b.get(col-1,row+1)==null){
         int[] f = {col-1,row+1};
         endList.add(f);
       }
