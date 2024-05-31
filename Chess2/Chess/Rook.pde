@@ -11,40 +11,40 @@ class Rook extends Piece{
   
   public ArrayList validMoves(){
      ArrayList<int[]> endList = new ArrayList<int[]>();
-    int myX = this.getX();
-    int myY = this.getY();
+    int col = this.getCol();
+    int row = this.getRow();
     
-    while (myX > 0 && b.get(myX-1,y)!=null){
-      if (b.get(myX-1,y).getColor() != this.getColor()){
-        int[] f = {myX-1,myY};
+    while (col > 0 && b.get(col-1,row)!=null){
+      if (b.get(col-1,row).getColor() != this.getColor()){
+        int[] f = {col-1,row};
         endList.add(f);
       }
-      myX--;
+      col--;
     }
-    myX = this.getX();
-    while (myX < 8 && b.get(myX+1,y)!=null){
-      if (b.get(myX+1,y).getColor() != this.getColor()){
-        int[] f = {myX+1,myY};
+    col = this.getCol();
+    while (col < 8 && b.get(col+1,row)!=null){
+      if (b.get(col+1,row).getColor() != this.getColor()){
+        int[] f = {col+1,row};
         endList.add(f);
 
       }
-      myX++;
+      col++;
     }
-    myX = this.getX();
-    while (myY > 0 && b.get(myX,myY-1) != null){
-      if (b.get(myX,myY-1).getColor() != this.getColor()){
-        int[] f = {myX,myY-1};
+    col = this.getCol();
+    while (row > 0 && b.get(col,row-1) != null){
+      if (b.get(col,row-1).getColor() != this.getColor()){
+        int[] f = {col,row-1};
         endList.add(f);
       }
-      myY--;
+      row--;
     }
-    myY = this.getY();
-    while (myY < 8 && b.get(myX,myY+1) != null){
-      if (b.get(myX,myY+1).getColor() != this.getColor()){
-        int[] f = {myX,myY+1};
+    row = this.getRow();
+    while (row < 8 && b.get(col,row+1) != null){
+      if (b.get(col,row+1).getColor() != this.getColor()){
+        int[] f = {col,row+1};
         endList.add(f);
       }
-      myY++;
+      row++;
     }
     
     return endList;
