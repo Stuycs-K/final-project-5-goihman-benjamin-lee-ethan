@@ -27,6 +27,11 @@ class Pawn extends Piece{
            int[] coord = new int[]{this.getCol(),this.getRow()+2};
            f.add(coord);
          }
+         if (b.get(this.getCol(),this.getRow()+1) != null){
+           int[] coord = new int[]{this.getCol(),this.getRow()+1};
+           f.add(coord);
+     }
+         
       }//check first move double jump
      if (b.get(this.getCol(),this.getRow()+1) != null){
          int[] coord = new int[]{this.getCol(),this.getRow()+1};
