@@ -12,11 +12,7 @@ class Bishop extends Piece{
     int row = this.getRow();
     
     while (col > 0 && row>0|| b.get(col,row)!=null){
-      if (b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor()){
-        int[] f = {col,row};
-        endList.add(f);
-      }
-      if (b.get(col,row)==null){
+      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
@@ -30,11 +26,7 @@ class Bishop extends Piece{
       //  int[] f = {col ,row };
       //  endList.add(f);
       //}
-      if (b.get(col,row) != null && b.get(col,row).getColor() != this.getColor()){
-        int[] f = {col,row};
-        endList.add(f); 
-      }
-      if (b.get(col,row)==null){
+      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
@@ -44,11 +36,7 @@ class Bishop extends Piece{
     col = this.getCol();
     row = this.getRow();
     while (row > 0 && col < 8|| b.get(col,row) != null){
-      if (b.get(col,row) != null && b.get(col,row).getColor() != this.getColor()){
-        int[] f = {col,row};
-        endList.add(f);
-      }
-      if (b.get(col,row)==null){
+      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
@@ -59,11 +47,7 @@ class Bishop extends Piece{
     col = this.getCol();
     row = this.getRow();
     while (b.get(col,row) != null && row < 8 && col >0|| b.get(col,row) != null){
-      if (b.get(col,row)==null||b.get(col,row).getColor() != this.getColor()){
-        int[] f = {col,row};
-        endList.add(f);
-      }
-      if (b.get(col,row)==null){
+      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
