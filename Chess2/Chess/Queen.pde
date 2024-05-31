@@ -14,6 +14,6 @@ class Queen extends Piece{
   
   public boolean move(int newX, int newY){
     //action
-    return isValidMove(newX,newY);
+    return false;
   }
 }
