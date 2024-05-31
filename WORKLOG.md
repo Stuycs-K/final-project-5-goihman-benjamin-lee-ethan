@@ -36,7 +36,8 @@
 ### 5/31/2024
 
 - Filled out the readme
-
+- Made pieces move and fully display
+- Show all valid moves for a selected piece
 ## Ethan Lee
 
 ### 5/22/2024
