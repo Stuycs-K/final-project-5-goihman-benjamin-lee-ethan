@@ -65,3 +65,8 @@ Changed isValidSquare back to isValidMove(), started basic code for checking for
 ### 5/30/2024
 - converted x y to col row for the pieces
 	- including getRow() and getCol()
+- fixed pawn validMoves()
+
+### 5/31/2024
+-did rook validMoves()
+
