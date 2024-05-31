@@ -41,16 +41,17 @@
 ## Ethan Lee
 
 ### 5/22/2024
-Created abstract piece class with constructors, instance variables, and both public/abstract methods
+- Created abstract piece class with constructors, instance variables, and both public/abstract methods
 
 ### 5/23/2024
 Created skeleton for other pieces
 
 ### 5/24/2024
-(According to commit history) Changed method isValidMove(int x, int y) to isValidSquare
+- Changed method isValidMove(int x, int y) to isValidSquare
 
 ### 5/27/2024
-Changed isValidSquare back to isValidMove(), started basic code for checking for pawn starting moves.
+- Changed isValidSquare back to isValidMove()
+- started basic code for checking for pawn starting moves.
 
 ### 5/28/2024
 - Created parameters + finished isValidMove for Knight Pieces
@@ -69,5 +70,5 @@ Changed isValidSquare back to isValidMove(), started basic code for checking for
 - fixed pawn validMoves()
 
 ### 5/31/2024
--did rook validMoves()
-
+- did rook validMoves()
+- did queen validMoves()
