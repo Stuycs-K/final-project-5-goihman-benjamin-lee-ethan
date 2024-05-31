@@ -40,9 +40,33 @@ class Pawn extends Piece{
      return f;
   } 
   else{
-    //do the same as lines 15-25 but for black team
-    return f;
-  }
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != true){
+        int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
+        f.add(coord);
+      }
+      //check diag right capture 
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != true){
+        int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
+        f.add(coord);
+      }
+      //check diag left capture
+      if (hasMoved != true){
+         if (b.get(this.getCol(),this.getRow()-1) == null && b.get(this.getCol(),this.getRow()-2) == null){
+           int[] coord = new int[]{this.getCol(),this.getRow()-2};
+           f.add(coord);
+         }
+         if (b.get(this.getCol(),this.getRow()-1) == null){
+           int[] coord = new int[]{this.getCol(),this.getRow()-1};
+           f.add(coord);
+     }
+         
+      }//check first move double jump
+     if (b.get(this.getCol(),this.getRow()-1) == null){
+         int[] coord = new int[]{this.getCol(),this.getRow()-1};
+         f.add(coord);
+     }
+     return f;
+    }
   }
   
   public boolean move(int col, int row){
