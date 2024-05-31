@@ -60,3 +60,8 @@ Changed isValidSquare back to isValidMove(), started basic code for checking for
 ### 5/29/2024
 - Changed to arraylist for validmoves 
 - Rook check horizontal and vertical
+
+
+### 5/30/2024
+- converted x y to col row for the pieces
+	- including getRow() and getCol()
