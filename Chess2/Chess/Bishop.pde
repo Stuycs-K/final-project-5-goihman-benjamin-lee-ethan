@@ -66,12 +66,16 @@ class Bishop extends Piece{
       col--;
       row++;
     }
+    col = this.getCol();
+    row = this.getRow();
     
     return endList;
   }
   
   
   public boolean move(int newCol, int newRow){
+    col = newCol;
+    row = newRow;
     return false;
   }
 }
