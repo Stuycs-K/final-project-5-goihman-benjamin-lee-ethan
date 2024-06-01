@@ -10,46 +10,58 @@ class Bishop extends Piece{
      ArrayList<int[]> endList = new ArrayList<int[]>();
     int col = this.getCol();
     int row = this.getRow();
+    boolean works = true;
     
-    while (col > 0 && row>0|| b.get(col,row)!=null){
+    while (col >= 0 && row >=0 &&works){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
+      if (b.get(row,col) != null){
+        works = false;
+        }
       col--;
       row--;
     }
     col = this.getCol();
     row = this.getRow();
-    while (col < 8 && row<8|| b.get(col,row)!=null){
-      //if (b.get(col ,row )==null){
-      //  int[] f = {col ,row };
-      //  endList.add(f);
-      //}
+    works = true;
+    while (col < 8 && row < 8){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
+      if (b.get(row,col) != null){
+        works = false;
+        }
       col++;
       row++;
     }
     col = this.getCol();
     row = this.getRow();
-    while (row > 0 && col < 8|| b.get(col,row) != null){
+    works = true;
+    while (row >= 0 && col < 8){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
       }
+      if (b.get(row,col) != null){
+        works = false;
+        }
       col++;
       row--;
     }
 
     col = this.getCol();
     row = this.getRow();
-    while (b.get(col,row) != null && row < 8 && col >0|| b.get(col,row) != null){
+    works = true;
+    while (row < 8 && col >= 0){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
+      }
+      if (b.get(row,col) != null){
+        works = false;
       }
       col--;
       row++;
@@ -60,7 +72,7 @@ class Bishop extends Piece{
   
   
   public boolean move(int newX, int newY){
-    //action
+    
     return false;
   }
 }
