@@ -28,12 +28,7 @@ abstract class Piece{
     return col;
   }
   
-  private void setRow(int newRow){
-    this.row = newRow;
-  }
-  private void setCol(int newCol){
-    this.col = newCol;
-  }
+
   abstract ArrayList<int[]> validMoves();
   abstract boolean move(int col, int row);
 }
