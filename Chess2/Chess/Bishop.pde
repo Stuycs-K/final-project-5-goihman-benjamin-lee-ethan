@@ -12,7 +12,7 @@ class Bishop extends Piece{
     int row = this.getRow();
     boolean works = true;
     
-    while (col >= 0 && row >=0 &&works){
+    while (col >= 0 && row >=0 && works){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
@@ -26,7 +26,7 @@ class Bishop extends Piece{
     col = this.getCol();
     row = this.getRow();
     works = true;
-    while (col < 8 && row < 8){
+    while (col < 8 && row < 8 && works){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
@@ -40,7 +40,7 @@ class Bishop extends Piece{
     col = this.getCol();
     row = this.getRow();
     works = true;
-    while (row >= 0 && col < 8){
+    while (row >= 0 && col < 8 && works){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
@@ -55,7 +55,7 @@ class Bishop extends Piece{
     col = this.getCol();
     row = this.getRow();
     works = true;
-    while (row < 8 && col >= 0){
+    while (row < 8 && col >= 0 && works){
       if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
         int[] f = {col,row};
         endList.add(f);
@@ -71,8 +71,7 @@ class Bishop extends Piece{
   }
   
   
-  public boolean move(int newX, int newY){
-    
+  public boolean move(int newCol, int newRow){
     return false;
   }
 }
