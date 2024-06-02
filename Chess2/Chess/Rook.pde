@@ -10,7 +10,7 @@ class Rook extends Piece{
   
   
   public ArrayList <int[]> validMoves(){
-     ArrayList<int[]> endList = new ArrayList<int[]>();
+    ArrayList<int[]> endList = new ArrayList<int[]>();
     int col = this.getCol();
     int row = this.getRow();
     boolean works;
