@@ -39,6 +39,10 @@
 - Made pieces move and fully display
 - Show all valid moves for a selected piece
 - Let pieces know they've been moved
+
+### 6/1/2024
+- Fix errors in how I let pieces know their move.
+- Fix error where pawn wouldn't realize it can attack on first move. 
 ## Ethan Lee
 
 ### 5/22/2024
