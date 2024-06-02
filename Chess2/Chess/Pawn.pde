@@ -40,12 +40,12 @@ class Pawn extends Piece{
      return f;
   } 
   else{
-      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != true){
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != false){
         int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
         f.add(coord);
       }
       //check diag right capture 
-      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != true){
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != false){
         int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
         f.add(coord);
       }

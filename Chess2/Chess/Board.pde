@@ -24,16 +24,13 @@ boolean move(int col, int row) {
   if (selected == null) {
     return false;
   }
-  if(!selected.move(col,row)){
   board[selected.getRow()][selected.getCol()] = null;
   board[row][col] = selected;
   selected.move(col,row);
   selected = null;
   turn++;
   return true;
-  }
-  return false;
-}
+ }
 
   
   public void resetBoard(){
