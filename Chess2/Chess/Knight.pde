@@ -17,8 +17,4 @@ class Knight extends Piece{
     return f;
   }
   
-  public boolean move(int newX, int newY){
-    //action
-    return false;
-  }
 }

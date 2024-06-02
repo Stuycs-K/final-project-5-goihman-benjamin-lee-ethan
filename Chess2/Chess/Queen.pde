@@ -12,8 +12,5 @@ class Queen extends Piece{
   }
   
   
-  public boolean move(int newX, int newY){
-    //action
-    return false;
-  }
+
 }

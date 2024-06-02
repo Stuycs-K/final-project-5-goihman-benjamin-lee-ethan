@@ -10,8 +10,5 @@ class King extends Piece{
     ArrayList<int[]> f = new ArrayList<int[]>();
     return f;
   }
-  public boolean move(int newX, int newY){
-    //action
-    return false;
-  }
+
 }

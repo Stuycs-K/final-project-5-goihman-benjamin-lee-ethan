@@ -54,8 +54,5 @@ class Rook extends Piece{
     return endList;
   }
   
-  public boolean move(int newX, int newY){
-    //action
-    return false;
-  }
+
 }
