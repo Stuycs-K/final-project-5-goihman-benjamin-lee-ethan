@@ -13,44 +13,32 @@ class Rook extends Piece{
      ArrayList<int[]> endList = new ArrayList<int[]>();
     int col = this.getCol();
     int row = this.getRow();
-    
-    while (col > 0 && row>0|| b.get(col,row)!=null){
-      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
-        int[] f = {col,row};
-        endList.add(f);
+    boolean works;
+    int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    for (int[] direction : directions) {
+      int dCol = direction[0];
+      int dRow = direction[1];
+      int currentCol = col;
+      int currentRow = row;
+      works = true;
+      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8 && works) {
+        currentCol += dCol;
+        currentRow += dRow;
+        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
+          if (b.get(currentCol, currentRow) == null) {
+            int[] move = {currentCol, currentRow};
+            endList.add(move);
+          } else {
+            if (b.get(currentCol, currentRow).getColor() != this.getColor()) {
+              int[] move = {currentCol, currentRow};
+              endList.add(move);
+            }
+            works = false; // Stop if there's a piece in the way
+          }
+        }
       }
-      col--;
-    }
-    col = this.getCol();
-    row = this.getRow();
-    while (col < 8 && row<8|| b.get(col,row)!=null){
-
-      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
-        int[] f = {col,row};
-        endList.add(f);
-      }
-      col++;
-    }
-    col = this.getCol();
-    row = this.getRow();
-    while (row > 0 && col < 8|| b.get(col,row) != null){
-      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
-        int[] f = {col,row};
-        endList.add(f);
-      }
-      row--;
     }
 
-    col = this.getCol();
-    row = this.getRow();
-    while (b.get(col,row) != null && row < 8 && col >0|| b.get(col,row) != null){
-      if (b.get(col,row)==null||(b.get(col,row) != null && b.get(col,row)==null||b.get(col,row).getColor() != this.getColor())){
-        int[] f = {col,row};
-        endList.add(f);
-      }
-      row++;
-    }
-    
     return endList;
   }
   
