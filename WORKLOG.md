@@ -46,6 +46,11 @@
 - Redid bishop validMoves so that it doesn't jump over pieces
 - Redid valid moves for rook and queen in the same way doen for bishop
 - Add move for king
+
+### 6/2/2024
+-Castling moves show but do not work, like you can see valid move but if doesnt castle just selects the other piece (b/c same color)o
+
+
 ## Ethan Lee
 
 ### 5/22/2024
