@@ -12,12 +12,12 @@ class Pawn extends Piece{
   public ArrayList<int[]> validMoves(){
     ArrayList<int[]> f = new ArrayList<int[]>();
     if (teamColor){
-      if (b.get(this.getCol()+1,this.getRow()+1)!= null && b.get(this.getCol()+1,this.getRow()+1).getColor() != true){
+      if (b.get(this.getCol()+1,this.getRow()+1)!= null && b.get(this.getCol()+1,this.getRow()+1).getColor() != this.getColor()){
         int[] coord = new int[]{this.getCol()+1,this.getRow()+1};
         f.add(coord);
       }
       //check diag right capture 
-      if (b.get(this.getCol()-1,this.getRow()+1)!= null && b.get(this.getCol()-1,this.getRow()+1).getColor() != true){
+      if (b.get(this.getCol()-1,this.getRow()+1)!= null && b.get(this.getCol()-1,this.getRow()+1).getColor() != this.getColor()){
         int[] coord = new int[]{this.getCol()-1,this.getRow()+1};
         f.add(coord);
       }
@@ -40,12 +40,12 @@ class Pawn extends Piece{
      return f;
   } 
   else{
-      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != false){
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != this.getColor()){
         int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
         f.add(coord);
       }
       //check diag right capture 
-      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != false){
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != this.getColor()){
         int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
         f.add(coord);
       }
