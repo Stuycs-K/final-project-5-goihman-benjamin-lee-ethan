@@ -7,7 +7,7 @@ class King extends Piece{
   
   
  public ArrayList<int[]> validMoves() {
-    ArrayList<int[]> f = new ArrayList<int[]>();
+    ArrayList<int[]> moves = new ArrayList<int[]>();
 
     boolean isWhite = this.getColor();
 
@@ -22,12 +22,36 @@ class King extends Piece{
 
             if (piece == null || piece.getColor() != isWhite) {
                 int[] move = {newCol, newRow};
-                f.add(move);
+                moves.add(move);
             }
         }
     }
+    if(!hasMoved){
+    boolean works;
+    directions = new int[][]{{-1, 0}, {1, 0}};
+    for (int[] direction : directions) {
+      int dCol = direction[0];
+      int dRow = direction[1];
+      int currentCol = col;
+      int currentRow = row;
+      works = true;
+      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8 && works) {
+        currentCol += dCol;
+        currentRow += dRow;
+        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
+          
+          if (b.get(currentCol, currentRow)!= null && b.get(currentCol,currentRow).getClass().getSimpleName().equals("Rook")&&!b.get(currentCol,currentRow).hasMoved) {
+            int[] move = {currentCol, currentRow};
+            moves.add(move);
+            works=false; //end loop early b/c only one per direction
+          } else if(b.get(currentCol,currentRow)!=null){
+            works=false;
+          }
+        }
+      }
+    }}
 
-    return f;
+    return moves;
 }
 
 }
