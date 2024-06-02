@@ -32,7 +32,6 @@
 - Redo the internal board so that it starts with white.
 - Redo whole main class to row and col to reduce unneeded complexity
 - Change how move works, so draw circles to show valid moves nad allow moves in that location.
-
 ### 5/31/2024
 
 - Filled out the readme
@@ -43,6 +42,8 @@
 ### 6/1/2024
 - Fix errors in how I let pieces know their move.
 - Fix error where pawn wouldn't realize it can attack on first move. 
+- Fixed move pieces so that onyl allowed moves are used
+- Redid bishop validMoves so that it doesn't jump over pieces
 ## Ethan Lee
 
 ### 5/22/2024
