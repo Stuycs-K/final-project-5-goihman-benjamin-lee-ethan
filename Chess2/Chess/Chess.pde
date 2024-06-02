@@ -15,49 +15,57 @@ void mouseClicked() {
   int squareSize = min(width, height) / boardSize;
   int offsetX = (width - (squareSize * boardSize)) / 2;
   int offsetY = (height - (squareSize * boardSize)) / 2;
-
   int col = (mouseX - offsetX) / squareSize;
   int row = (mouseY - offsetY) / squareSize;
   println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
   println("Translated to board coordinates: (" + col + ", " + row + ")");
-
   if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
     Piece clickedPiece = b.get(col, row);
-
     if (clickedPiece != null) {
       if (b.select(col, row)) {
         println("Selection successful");
       } else {
-        if (b.selected != null && b.move(col, row)) {
-          b.selected = null;
-          println("Move successful");
-        } else {
-          println("Invalid move");
+        if (b.selected != null) {
+          ArrayList<int[]> validMoves = b.selected.validMoves();
+          boolean isValidMove = false;
+          for (int[] move : validMoves) {
+            if (move[0] == col && move[1] == row) {
+              isValidMove = true;
+              break;
+            }
+          }
+          if (isValidMove && b.move(col, row)) {
+            b.selected = null;
+            println("Move successful");
+          } else {
+            println("Invalid move");
+          }
         }
       }
     } else {
       if (b.selected != null) {
         ArrayList<int[]> validMoves = b.selected.validMoves();
+        boolean isValidMove = false;
         for (int[] move : validMoves) {
           if (move[0] == col && move[1] == row) {
-            b.move(col, row);
-            b.selected = null;
-            println("Move successful");
+            isValidMove = true;
             break;
           }
         }
-      }
-      if (b.selected != null) {
-        b.selected = null;
-        println("Deselected piece");
+        if (isValidMove) {
+          b.move(col, row);
+          b.selected = null;
+          println("Move successful");
+        } else {
+          b.selected = null;
+          println("Deselected piece");
+        }
       }
     }
-
     drawBoard();
     if (b.selected != null) {
       fill(255, 255, 200);
       rect(offsetX + b.selected.getCol() * squareSize, offsetY + b.selected.getRow() * squareSize, squareSize, squareSize);
-
       fill(0, 255, 0, 100);
       ArrayList<int[]> validMoves = b.selected.validMoves();
       for (int[] move : validMoves) {
@@ -71,7 +79,6 @@ void mouseClicked() {
     println("Click out of board bounds.");
   }
 }
-
 
 void drawBoard() {
   int boardSize = 8;
