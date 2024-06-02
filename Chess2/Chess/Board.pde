@@ -27,8 +27,7 @@ boolean move(int col, int row) {
   if(!selected.move(col,row)){
   board[selected.getRow()][selected.getCol()] = null;
   board[row][col] = selected;
-  selected.row = row;
-  selected.col = col;
+  selected.move(col,row);
   selected = null;
   turn++;
   return true;

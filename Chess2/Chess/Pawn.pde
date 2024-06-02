@@ -69,8 +69,5 @@ class Pawn extends Piece{
     }
   }
   
-  public boolean move(int col, int row){
-    
-    return false;
-  }
+
 }

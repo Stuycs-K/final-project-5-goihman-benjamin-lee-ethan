@@ -3,7 +3,7 @@ abstract class Piece{
   final PImage image;
   final boolean teamColor;
   int row; int col;
-  final boolean hasMoved;
+  boolean hasMoved;
   
   
   Piece(PImage image, int col, int row, boolean teamColor){
@@ -30,5 +30,9 @@ abstract class Piece{
   
 
   abstract ArrayList<int[]> validMoves();
-  abstract boolean move(int col, int row);
+  public void move(int nCol, int nRow){
+     col=nCol;
+     row=nRow;
+     hasMoved = true;
+  }
 }

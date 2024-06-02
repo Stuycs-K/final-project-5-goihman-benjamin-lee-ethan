@@ -72,10 +72,4 @@ class Bishop extends Piece{
     return endList;
   }
   
-  
-  public boolean move(int newCol, int newRow){
-    col = newCol;
-    row = newRow;
-    return false;
-  }
 }
