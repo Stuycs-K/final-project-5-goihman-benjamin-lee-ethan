@@ -24,23 +24,58 @@
 ### 5/29/2024
 - Allow user to move pieces and it deletes the old piece
 - Fix some errors in loop and make skeleton code
+- Add better checks for nulls and other more edge cases as well as format Chess
 
+### 5/30/2024
 
+- Redo the board class and the main to use row, col to improve simplicty
+- Redo the internal board so that it starts with white.
+- Redo whole main class to row and col to reduce unneeded complexity
+- Change how move works, so draw circles to show valid moves nad allow moves in that location.
+### 5/31/2024
+
+- Filled out the readme
+- Made pieces move and fully display
+- Show all valid moves for a selected piece
+- Let pieces know they've been moved
+
+### 6/1/2024
+- Fix errors in how I let pieces know their move.
+- Fix error where pawn wouldn't realize it can attack on first move. 
+- Fixed move pieces so that onyl allowed moves are used
+- Redid bishop validMoves so that it doesn't jump over pieces
+- Redid valid moves for rook and queen in the same way doen for bishop
 ## Ethan Lee
 
 ### 5/22/2024
-Created abstract piece class with constructors, instance variables, and both public/abstract methods
+- Created abstract piece class with constructors, instance variables, and both public/abstract methods
 
 ### 5/23/2024
 Created skeleton for other pieces
 
 ### 5/24/2024
-(According to commit history) Changed method isValidMove(int x, int y) to isValidSquare
+- Changed method isValidMove(int x, int y) to isValidSquare
 
 ### 5/27/2024
-Changed isValidSquare back to isValidMove(), started basic code for checking for pawn starting moves.
+- Changed isValidSquare back to isValidMove()
+- started basic code for checking for pawn starting moves.
 
 ### 5/28/2024
 - Created parameters + finished isValidMove for Knight Pieces
 - Finished pawn valid moves excluding en passant
 - Altered both to check for null and no jumping over pieces (unless Knight)
+
+
+### 5/29/2024
+- Changed to arraylist for validmoves 
+- Rook check horizontal and vertical
+
+
+### 5/30/2024
+- converted x y to col row for the pieces
+	- including getRow() and getCol()
+- fixed pawn validMoves()
+
+### 5/31/2024
+- did rook validMoves()
+- did queen validMoves()

@@ -1,54 +1,73 @@
 class Pawn extends Piece{
   
-  Pawn(PImage image, int x, int y, boolean teamColor){
-    super(image,x,y,teamColor);
+  Pawn(PImage image, int col, int row, boolean teamColor){
+    super(image,col,row,teamColor);
   }
-  
-  public boolean isValidMove(int x, int y){
-    if (b.get(x,y) == null){
-      return false;
-    }
-    if (teamColor){
-      if (b.get(x+1,y+1)!= null && b.get(x+1,y+1).getColor() != true){
-        return true;
-      }
-      //check diag right capture 
-      if (b.get(x-1,y+1)!= null && b.get(x-1,y+1).getColor() != true){
-        return true;
-      }
-      //check diag left capture
-      if (hasMoved != true){
-         return (y== this.getY()+1 || y == this.getY()+2)&& this.getX()==x;
-      }//check first move double jump
-       return y== this.getY()+1 && this.getX() == x && b.get(x,y-1)!= null;
-     } else{
-      if (b.get(x+1,y-1)!= null && b.get(x+1,y-1).getColor() != false){
-        return true;
-      }
-      if (b.get(x-1,y-1)!= null && b.get(x-1,y-1).getColor() != false){
-        return true;
-      }
-     if (hasMoved != true){
-       return (y== this.getY()-1 || y == this.getY()-2)&& this.getX()==x;
-     }
-     return y == this.getY() -1 && this.getX() == x;
-     }
-     
-   }
     
-  public boolean promote(int x, int y){
+  public boolean promote(int col, int row){
     return true;
   }
   
   
   public ArrayList<int[]> validMoves(){
     ArrayList<int[]> f = new ArrayList<int[]>();
-    return f;
+    if (teamColor){
+      if (b.get(this.getCol()+1,this.getRow()+1)!= null && b.get(this.getCol()+1,this.getRow()+1).getColor() != this.getColor()){
+        int[] coord = new int[]{this.getCol()+1,this.getRow()+1};
+        f.add(coord);
+      }
+      //check diag right capture 
+      if (b.get(this.getCol()-1,this.getRow()+1)!= null && b.get(this.getCol()-1,this.getRow()+1).getColor() != this.getColor()){
+        int[] coord = new int[]{this.getCol()-1,this.getRow()+1};
+        f.add(coord);
+      }
+      //check diag left capture
+      if (hasMoved != true){
+         if (b.get(this.getCol(),this.getRow()+1) == null && b.get(this.getCol(),this.getRow()+2) == null){
+           int[] coord = new int[]{this.getCol(),this.getRow()+2};
+           f.add(coord);
+         }
+         if (b.get(this.getCol(),this.getRow()+1) == null){
+           int[] coord = new int[]{this.getCol(),this.getRow()+1};
+           f.add(coord);
+     }
+         
+      }//check first move double jump
+     if (b.get(this.getCol(),this.getRow()+1) == null){
+         int[] coord = new int[]{this.getCol(),this.getRow()+1};
+         f.add(coord);
+     }
+     return f;
+  } 
+  else{
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != this.getColor()){
+        int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
+        f.add(coord);
+      }
+      //check diag right capture 
+      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != this.getColor()){
+        int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
+        f.add(coord);
+      }
+      //check diag left capture
+      if (hasMoved != true){
+         if (b.get(this.getCol(),this.getRow()-1) == null && b.get(this.getCol(),this.getRow()-2) == null){
+           int[] coord = new int[]{this.getCol(),this.getRow()-2};
+           f.add(coord);
+         }
+         if (b.get(this.getCol(),this.getRow()-1) == null){
+           int[] coord = new int[]{this.getCol(),this.getRow()-1};
+           f.add(coord);
+     }
+         
+      }//check first move double jump
+     if (b.get(this.getCol(),this.getRow()-1) == null){
+         int[] coord = new int[]{this.getCol(),this.getRow()-1};
+         f.add(coord);
+     }
+     return f;
+    }
   }
   
-  public boolean move(int newX, int newY){
-    //action
 
-    return isValidMove(newX,newY);
-  }
 }
