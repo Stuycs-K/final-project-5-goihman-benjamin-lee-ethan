@@ -45,6 +45,7 @@
 - Fixed move pieces so that onyl allowed moves are used
 - Redid bishop validMoves so that it doesn't jump over pieces
 - Redid valid moves for rook and queen in the same way doen for bishop
+- Add move for king
 ## Ethan Lee
 
 ### 5/22/2024
