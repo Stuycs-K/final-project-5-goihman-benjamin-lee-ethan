@@ -48,9 +48,8 @@
 - Add move for king
 
 ### 6/2/2024
--Castling moves show but do not work, like you can see valid move but if doesnt castle just selects the other piece (b/c same color)o
-
-
+-Castling moves show but do not work, like you can see valid move but if doesnt castle just selects the other piece (b/c same color)
+- Add text to see who's turn it is
 ## Ethan Lee
 
 ### 5/22/2024

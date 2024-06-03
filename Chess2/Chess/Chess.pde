@@ -5,6 +5,9 @@ void setup() {
   b = new Board();
   drawBoard();
   drawPieces();
+  textSize(64);
+  fill(255,255,255);
+  text("White's turn",4,64);
 }
 
 void draw() {
@@ -63,6 +66,13 @@ void mouseClicked() {
       }
     }
     drawBoard();
+    if (b.turn % 2 == 0) {
+      fill(255, 255, 255);
+      text("White's turn", 4, 64);
+    } else {
+      fill(0, 0, 0);
+      text("Black's turn", 1080, 64);
+    }
     if (b.selected != null) {
       fill(255, 255, 200);
       rect(offsetX + b.selected.getCol() * squareSize, offsetY + b.selected.getRow() * squareSize, squareSize, squareSize);
@@ -78,6 +88,8 @@ void mouseClicked() {
   } else {
     println("Click out of board bounds.");
   }
+  
+
 }
 
 void drawBoard() {
@@ -86,7 +98,7 @@ void drawBoard() {
   int offsetX = (width - (squareSize * boardSize)) / 2;
   int offsetY = (height - (squareSize * boardSize)) / 2;
   boolean isLightBlue = true;
-
+  background(220,220,220);
   for (int row = 0; row < boardSize; row++) {
     for (int col = 0; col < boardSize; col++) {
       if (isLightBlue) {
