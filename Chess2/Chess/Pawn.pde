@@ -45,8 +45,8 @@ class Pawn extends Piece{
         f.add(coord);
       }
       //check diag right capture 
-      if (b.get(this.getCol()-1,this.getRow()-1)!= null && b.get(this.getCol()-1,this.getRow()-1).getColor() != this.getColor()){
-        int[] coord = new int[]{this.getCol()-1,this.getRow()-1};
+      if (b.get(this.getCol()+1,this.getRow()-1)!= null && b.get(this.getCol()+1,this.getRow()-1).getColor() != this.getColor()){
+        int[] coord = new int[]{this.getCol()+1,this.getRow()-1};
         f.add(coord);
       }
       //check diag left capture
