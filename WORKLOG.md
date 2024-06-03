@@ -46,6 +46,10 @@
 - Redid bishop validMoves so that it doesn't jump over pieces
 - Redid valid moves for rook and queen in the same way doen for bishop
 - Add move for king
+
+### 6/2/2024
+- Add text to see who's turn it is
+
 ## Ethan Lee
 
 ### 5/22/2024
