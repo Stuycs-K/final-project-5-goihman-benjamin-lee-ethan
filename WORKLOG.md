@@ -48,8 +48,13 @@
 - Add move for king
 
 ### 6/2/2024
--Castling moves show but do not work, like you can see valid move but if doesnt castle just selects the other piece (b/c same color)
+- Castling moves show but do not work, like you can see valid move but if doesnt castle just selects the other piece (b/c same color)
 - Add text to see who's turn it is
+
+### 6/4/2024
+- Fixed castling rooks no longer show it only kings.
+- Formatted Main and Board.
+
 ## Ethan Lee
 
 ### 5/22/2024
