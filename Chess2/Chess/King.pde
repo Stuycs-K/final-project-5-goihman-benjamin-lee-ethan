@@ -26,30 +26,35 @@ class King extends Piece{
             }
         }
     }
-    if(!hasMoved){
-    boolean works;
-    directions = new int[][]{{-1, 0}, {1, 0}};
-    for (int[] direction : directions) {
-      int dCol = direction[0];
-      int dRow = direction[1];
-      int currentCol = col;
-      int currentRow = row;
-      works = true;
-      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8 && works) {
-        currentCol += dCol;
-        currentRow += dRow;
-        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
-          
-          if (b.get(currentCol, currentRow)!= null && b.get(currentCol,currentRow).getClass().getSimpleName().equals("Rook")&&!b.get(currentCol,currentRow).hasMoved) {
-            int[] move = {currentCol, currentRow};
-            moves.add(move);
-            works=false; //end loop early b/c only one per direction
-          } else if(b.get(currentCol,currentRow)!=null){
-            works=false;
-          }
+    if (!hasMoved) {
+        if (b.get(7, row) != null && b.get(7, row).getClass().getSimpleName().equals("Rook") && !b.get(7, row).hasMoved) {
+            boolean canCastle = true;
+            for (int c = 5; c <= 6; c++) {
+                if (b.get(c, row) != null) {
+                    canCastle = false;
+                    break;
+                }
+            }
+            if (canCastle) {
+                int[] move = {6, row};
+                moves.add(move);
+            }
         }
-      }
-    }}
+   if (b.get(0, row) != null && b.get(0, row).getClass().getSimpleName().equals("Rook") && !b.get(0, row).hasMoved) {
+            boolean canCastle = true;
+            for (int c = 1; c <= 3; c++) {
+                if (b.get(c, row) != null) {
+                    canCastle = false;
+                    break;
+                }
+            }
+            if (canCastle) {
+                int[] move = {2, row};
+                moves.add(move);
+            }
+        }
+    }
+
 
     return moves;
 }

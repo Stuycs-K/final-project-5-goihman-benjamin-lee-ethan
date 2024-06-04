@@ -38,29 +38,7 @@ class Rook extends Piece{
         }
       }
     }
-    if(!hasMoved){
-    directions = new int[][]{{-1, 0}, {1, 0}};
-    for (int[] direction : directions) {
-      int dCol = direction[0];
-      int dRow = direction[1];
-      int currentCol = col;
-      int currentRow = row;
-      works = true;
-      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8 && works) {
-        currentCol += dCol;
-        currentRow += dRow;
-        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
-          
-          if (b.get(currentCol, currentRow)!= null && b.get(currentCol,currentRow).getClass().getSimpleName().equals("King")&&!b.get(currentCol,currentRow).hasMoved) {
-            int[] move = {currentCol, currentRow};
-            endList.add(move);
-            works=false; //end loop early b/c only one per direction
-          } else if(b.get(currentCol,currentRow)!=null){
-            works=false;
-          }
-        }
-      }
-    }}
+  
     
     return endList;
   }
