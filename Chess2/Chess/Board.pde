@@ -22,7 +22,16 @@ public class Board {
         }
         return board[row][col];
     }
-
+    public King getKing(boolean col){
+           for(Piece[] r : board){
+             for(Piece p: r){
+               if(p!=null && p.getName().equals("King") && p.getColor() == col){
+                   return (King) p;
+             }
+           }
+         }
+           return null;
+    }
     boolean move(int col, int row) {
         if (col < 0 || col >= 8 || row < 0 || row >= 8) {
             return false;
