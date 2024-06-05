@@ -7,7 +7,9 @@ class Rook extends Piece{
   public boolean isValidMove(int col, int row){  
     return validMoves().contains(new int[]{col,row});
   }
-  
+    public String getName(){
+    return "Rook";  
+  }
   
   public ArrayList <int[]> validMoves(){
     ArrayList<int[]> endList = new ArrayList<int[]>();
