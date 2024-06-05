@@ -8,6 +8,10 @@ class Pawn extends Piece{
     return true;
   }
   
+  public String getName(){
+    return "Pawn";  
+  }
+  
   
   public ArrayList<int[]> validMoves(){
     ArrayList<int[]> f = new ArrayList<int[]>();

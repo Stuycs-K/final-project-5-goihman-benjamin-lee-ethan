@@ -30,6 +30,9 @@ abstract class Piece{
   
 
   abstract ArrayList<int[]> validMoves();
+  public String getName(){
+  return "";
+  }
   public void move(int nCol, int nRow){
      col=nCol;
      row=nRow;
