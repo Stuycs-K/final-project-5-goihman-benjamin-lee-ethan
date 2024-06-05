@@ -11,7 +11,9 @@ class Knight extends Piece{
   //  return false;
   //}
   
-  
+    public String getName(){
+    return "Knight";  
+  }
  public ArrayList<int[]> validMoves() {
     ArrayList<int[]> f = new ArrayList<int[]>();
 

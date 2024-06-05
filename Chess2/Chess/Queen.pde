@@ -5,7 +5,9 @@ class Queen extends Piece{
   }
   
  
-  
+    public String getName(){
+    return "Queen";  
+  }
 public ArrayList <int[]> validMoves(){
     ArrayList<int[]> endList = new ArrayList<int[]>();
     int col = this.getCol();
