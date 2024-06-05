@@ -24,7 +24,7 @@ class King extends Piece{
         currentCol += dCol;
         currentRow += dRow;
         if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
-            if (b.get(currentCol, currentRow).getColor() != this.getColor() && (this.getName().equals("Rook") || this.getName().equals("Queen"))) {
+            if (b.get(currentCol,currentRow) != null && b.get(currentCol, currentRow).getColor() != this.getColor() && (this.getName().equals("Rook") || this.getName().equals("Queen"))) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
             works = false; // Stop if there's a piece in the way
@@ -44,7 +44,7 @@ class King extends Piece{
         currentCol += dCol;
         currentRow += dRow;
         if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
-            if (b.get(currentCol, currentRow).getColor() != this.getColor() && (this.getName().equals("Bishop") || this.getName().equals("Queen"))) {
+            if (b.get(currentCol,currentRow) != null && b.get(currentCol, currentRow).getColor() != this.getColor() && (this.getName().equals("Bishop") || this.getName().equals("Queen"))) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
             works = false; // Stop if there's a piece in the way
@@ -61,7 +61,7 @@ class King extends Piece{
         if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
             Piece piece = b.get(newCol, newRow);
 
-            if (piece.getColor() != isWhite && piece.getName().equals("Knight")) {
+            if (piece!=null && piece.getColor() != isWhite && piece.getName().equals("Knight")) {
                 int[] move = {newCol, newRow};
                 endList.add(move);
             }
