@@ -89,3 +89,11 @@ Created skeleton for other pieces
 ### 5/31/2024
 - did rook validMoves()
 - did queen validMoves()
+
+### 6/3/2024
+- started king inCheck()
+
+### 6/4/2024 
+- finished king isInCheck()
+  	- incorporated arraylist to check when another piece sees it
+  	- Needs to be added to move
