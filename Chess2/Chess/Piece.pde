@@ -38,4 +38,15 @@ abstract class Piece{
      row=nRow;
      hasMoved = true;
   }
+  public boolean tryMove(int nCol, int nRow){
+    Piece old = b.board[nRow][nCol];
+    b.board[nRow][nCol] = b.board[row][col];
+    b.board[row][col] = null;
+    boolean ret = !b.getKing(teamColor).isInCheck();
+    b.board[row][col] = b.board[nRow][nCol];
+    b.board[nRow][nCol] = old;  
+    print(getName());
+    print(ret);
+    return ret;
+  }
 }
