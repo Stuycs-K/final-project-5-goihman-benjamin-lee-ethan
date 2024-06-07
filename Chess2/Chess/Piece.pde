@@ -42,7 +42,7 @@ abstract class Piece{
     Piece old = b.board[nRow][nCol];
     b.board[nRow][nCol] = b.board[row][col];
     b.board[row][col] = null;
-    boolean ret =!b.getKing(teamColor).isInCheck();
+    boolean ret = !b.getKing(teamColor).isInCheck();
     b.board[row][col] = b.board[nRow][nCol];
     b.board[nRow][nCol] = old;  
     return ret;

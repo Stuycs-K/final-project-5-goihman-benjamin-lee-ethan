@@ -56,7 +56,9 @@
 - Formatted Main and Board.
 
 ### 6/5/2024
-- Fix check
+- Fix check (in some scenaiors)
+- Add check for check in all pieces + format them
+
 ## Ethan Lee
 
 ### 5/22/2024
