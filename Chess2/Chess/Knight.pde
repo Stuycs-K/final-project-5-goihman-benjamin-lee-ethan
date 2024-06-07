@@ -20,8 +20,8 @@ class Knight extends Piece {
       if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
         Piece piece = b.get(newCol, newRow);
 
-        if (piece == null
-            || piece.getColor() != isWhite && tryMove(newCol, newRow)) {
+        if ((piece == null
+            || piece.getColor() != isWhite) && tryMove(newCol, newRow)) {
           int[] move = {newCol, newRow};
           f.add(move);
         }

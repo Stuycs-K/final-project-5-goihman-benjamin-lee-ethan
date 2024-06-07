@@ -33,7 +33,7 @@ class Rook extends Piece {
             int[] move = {currentCol, currentRow};
             endList.add(move);
           } else {
-            if (b.get(currentCol, currentRow).getColor() != this.getColor()
+            if (b.get(currentCol,currentRow)!= null && b.get(currentCol, currentRow).getColor() != this.getColor()
                 && tryMove(currentCol, currentRow)) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
