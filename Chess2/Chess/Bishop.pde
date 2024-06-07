@@ -1,10 +1,9 @@
 class Bishop extends Piece {
-
   Bishop(PImage image, int col, int row, boolean teamColor) {
     super(image, col, row, teamColor);
   }
-  public String getName(){
-    return "Bishop";  
+  public String getName() {
+    return "Bishop";
   }
   public ArrayList<int[]> validMoves() {
     ArrayList<int[]> endList = new ArrayList<int[]>();
@@ -20,16 +19,20 @@ class Bishop extends Piece {
       int currentCol = col;
       int currentRow = row;
       works = true;
-      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8 && works) {
+      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0
+          && currentRow < 8 && works) {
         currentCol += dCol;
         currentRow += dRow;
-        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
-          if (b.get(currentCol, currentRow) == null) {
+        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0
+            && currentRow < 8) {
+          if (b.get(currentCol, currentRow) == null
+              && tryMove(currentCol, currentRow)) {
             int[] move = {currentCol, currentRow};
-            
+
             endList.add(move);
           } else {
-            if (b.get(currentCol, currentRow).getColor() != this.getColor()) {
+            if (b.get(currentCol, currentRow).getColor() != this.getColor()
+                && tryMove(currentCol, currentRow)) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
             }
