@@ -29,14 +29,10 @@ class Knight extends Piece{
 
             if (piece == null || piece.getColor() != isWhite) {
                 int[] move = {newCol, newRow};
-                Piece old = b.board[newRow][newCol];
-                b.board[newRow][newCol] = b.board[row][col];
-                b.board[row][col] = null;
-                if (!b.getKing(teamColor).isInCheck()){
+
+                if (tryMove(newCol,newRow)){
                 f.add(move);
               }
-              b.board[row][col] = b.board[newRow][newCol];
-              b.board[newRow][newCol] = old;
               
             }
         }
