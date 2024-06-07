@@ -14,9 +14,9 @@ class King extends Piece {
     System.out.println("Checking if in check at position: (" + col + ", " + row
         + "), Color: " + (isWhite ? "White" : "Black"));
 
-
     // Check for bishop and queen attacks
-    int[][] directions0 = {{-1, -1}, {1, 1}, {1, -1}, {-1, 1},{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    int[][] directions0 = {
+        {-1, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     for (int[] direction : directions0) {
       int dCol = direction[0];
       int dRow = direction[1];
@@ -122,7 +122,8 @@ class King extends Piece {
       if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
         Piece piece = b.get(newCol, newRow);
 
-        if (piece == null || piece.getColor() != isWhite) {
+        if (piece == null
+            || piece.getColor() != isWhite && tryMove(newCol, newRow)) {
           int[] move = {newCol, newRow};
           moves.add(move);
         }
@@ -139,7 +140,7 @@ class King extends Piece {
             break;
           }
         }
-        if (canCastle) {
+        if (canCastle && tryMove(6, row)) {
           int[] move = {6, row};
           moves.add(move);
         }
@@ -154,7 +155,7 @@ class King extends Piece {
             break;
           }
         }
-        if (canCastle) {
+        if (canCastle && tryMove(2, row)) {
           int[] move = {2, row};
           moves.add(move);
         }
