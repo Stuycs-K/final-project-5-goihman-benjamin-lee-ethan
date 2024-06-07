@@ -55,6 +55,8 @@
 - Fixed castling rooks no longer show it only kings.
 - Formatted Main and Board.
 
+### 6/5/2024
+- Fix check
 ## Ethan Lee
 
 ### 5/22/2024

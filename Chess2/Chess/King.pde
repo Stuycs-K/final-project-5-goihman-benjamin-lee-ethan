@@ -14,32 +14,6 @@ class King extends Piece {
     System.out.println("Checking if in check at position: (" + col + ", " + row
         + "), Color: " + (isWhite ? "White" : "Black"));
 
-    // Check for rook and queen attacks
-    //int[][] directions = {};
-    //for (int[] direction : directions) {
-    //  int dCol = direction[0];
-    //  int dRow = direction[1];
-    //  int currentCol = col + dCol;
-    //  int currentRow = row + dRow;
-    //  while (currentCol >= 0 && currentCol < 8 && currentRow >= 0
-    //      && currentRow < 8) {
-    //    Piece piece = b.get(currentCol, currentRow);
-    //    if (piece != null) {
-    //      System.out.println("Found piece at (" + currentCol + ", " + currentRow
-    //          + "): " + piece.getName());
-    //      if (piece.getColor() != isWhite
-    //          && (piece.getName().equals("Rook")
-    //              || piece.getName().equals("Queen"))) {
-    //        System.out.println("Check detected by " + piece.getName() + " at ("
-    //            + currentCol + ", " + currentRow + ")");
-    //        return true;
-    //      }
-    //      break; // Stop if there's a piece in the way
-    //    }
-    //    currentCol += dCol;
-    //    currentRow += dRow;
-    //  }
-    //}
 
     // Check for bishop and queen attacks
     int[][] directions0 = {{-1, -1}, {1, 1}, {1, -1}, {-1, 1},{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
