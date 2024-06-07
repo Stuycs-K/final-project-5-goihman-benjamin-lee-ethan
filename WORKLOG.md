@@ -59,6 +59,9 @@
 - Fix check (in some scenaiors)
 - Add check for check in all pieces + format them
 
+### 6/6/2024
+- Fix check checking for rook and bishop get rid of null error
+
 ## Ethan Lee
 
 ### 5/22/2024
