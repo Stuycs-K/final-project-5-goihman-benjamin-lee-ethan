@@ -9,3 +9,6 @@ This will be a normal chess game, MVP - Will have a working chess board with val
 First select the piece you want to move. Then all avalaible moves will be shown.
 Then either make a move, and the piece will move as well as take if needed.
 You can click yourself to unselect or click another peice of your same color to select that piece instead
+## Major-ish changes to prototype
+- isInCheck moved to king class, as it is depedent on the color of the king and the king peice more than the board class
+- All isValidMove methods removed as we validMoves can be used instead

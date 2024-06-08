@@ -11,12 +11,12 @@ class King extends Piece {
     int row = this.getRow();
     boolean isWhite = this.getColor();
 
-    System.out.println("Checking if in check at position: (" + col + ", " + row
-        + "), Color: " + (isWhite ? "White" : "Black"));
+    //System.out.println("Checking if in check at position: (" + col + ", " + row
+    //    + "), Color: " + (isWhite ? "White" : "Black"));
 
     // Check for bishop and queen attacks
     int[][] directions0 = {
-        {-1, -1}, {1, 1}, {1, -1}, {-1, 1}, {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        {-1, -1}, {1, 1}, {1, -1}, {-1, 1}};
     for (int[] direction : directions0) {
       int dCol = direction[0];
       int dRow = direction[1];
@@ -26,8 +26,8 @@ class King extends Piece {
           && currentRow < 8) {
         Piece piece = b.get(currentCol, currentRow);
         if (piece != null) {
-          System.out.println("Found piece at (" + currentCol + ", " + currentRow
-              + "): " + piece.getName());
+          //System.out.println("Found piece at (" + currentCol + ", " + currentRow
+          //    + "): " + piece.getName());
           if (piece.getColor() != isWhite
               && (piece.getName().equals("Bishop")
                   || piece.getName().equals("Queen")
@@ -52,15 +52,42 @@ class King extends Piece {
       if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
         Piece piece = b.get(newCol, newRow);
         if (piece != null) {
-          System.out.println("Checking knight at (" + newCol + ", " + newRow
-              + "): " + piece.getName()
-              + ", Color: " + (piece.getColor() ? "White" : "Black"));
+          //System.out.println("Checking knight at (" + newCol + ", " + newRow
+          //    + "): " + piece.getName()
+          //    + ", Color: " + (piece.getColor() ? "White" : "Black"));
           if (piece.getColor() != isWhite && piece.getName().equals("Knight")) {
             System.out.println(
                 "Check detected by Knight at (" + newCol + ", " + newRow + ")");
             return true;
           }
         }
+      }
+    }
+    //Check for Queen and Rook
+    int[][] directions2 = {
+        {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    for (int[] direction : directions2) {
+      int dCol = direction[0];
+      int dRow = direction[1];
+      int currentCol = col + dCol;
+      int currentRow = row + dRow;
+      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0
+          && currentRow < 8) {
+        Piece piece = b.get(currentCol, currentRow);
+        if (piece != null) {
+          //System.out.println("Found piece at (" + currentCol + ", " + currentRow
+          //    + "): " + piece.getName());
+          if (piece.getColor() != isWhite
+              && (piece.getName().equals("Queen")
+                  || piece.getName().equals("Rook")    )) {
+            System.out.println("Check detected by " + piece.getName() + " at ("
+                + currentCol + ", " + currentRow + ")");
+            return true;
+          }
+          break; // Stop if there's a piece in the way
+        }
+        currentCol += dCol;
+        currentRow += dRow;
       }
     }
 
@@ -72,9 +99,9 @@ class King extends Piece {
       if (pawnCol >= 0 && pawnCol < 8) {
         Piece piece = b.get(pawnCol, pawnRow);
         if (piece != null) {
-          System.out.println("Checking pawn at (" + pawnCol + ", " + pawnRow
-              + "): " + piece.getName()
-              + ", Color: " + (piece.getColor() ? "White" : "Black"));
+          //System.out.println("Checking pawn at (" + pawnCol + ", " + pawnRow
+          //    + "): " + piece.getName()
+          //    + ", Color: " + (piece.getColor() ? "White" : "Black"));
           if (piece.getColor() != isWhite && piece.getName().equals("Pawn")) {
             System.out.println(
                 "Check detected by Pawn at (" + pawnCol + ", " + pawnRow + ")");
@@ -93,9 +120,9 @@ class King extends Piece {
       if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
         Piece piece = b.get(newCol, newRow);
         if (piece != null) {
-          System.out.println("Checking king at (" + newCol + ", " + newRow
-              + "): " + piece.getName()
-              + ", Color: " + (piece.getColor() ? "White" : "Black"));
+          //System.out.println("Checking king at (" + newCol + ", " + newRow
+          //    + "): " + piece.getName()
+          //    + ", Color: " + (piece.getColor() ? "White" : "Black"));
           if (piece.getColor() != isWhite && piece.getName().equals("King")) {
             System.out.println(
                 "Check detected by King at (" + newCol + ", " + newRow + ")");
@@ -124,10 +151,11 @@ class King extends Piece {
         Piece piece = b.get(newCol, newRow);
 
         if (piece == null
-            || piece.getColor() != isWhite && tryMove(newCol, newRow)) {
+            || piece.getColor() != isWhite) {
+              if(tryMove(newCol,newRow)){
           int[] move = {newCol, newRow};
           moves.add(move);
-        }
+        }}
       }
     }
     if (!hasMoved) {
@@ -142,9 +170,10 @@ class King extends Piece {
           }
         }
         if (canCastle && tryMove(6, row)) {
+          if(tryMove(6,row)){
           int[] move = {6, row};
           moves.add(move);
-        }
+        }}
       }
       if (b.get(0, row) != null
           && b.get(0, row).getClass().getSimpleName().equals("Rook")
@@ -157,9 +186,10 @@ class King extends Piece {
           }
         }
         if (canCastle && tryMove(2, row)) {
+          if(tryMove(2,row)){
           int[] move = {2, row};
           moves.add(move);
-        }
+        }}
       }
     }
 
