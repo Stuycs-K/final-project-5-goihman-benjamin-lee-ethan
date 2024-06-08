@@ -3,6 +3,7 @@ public class Board {
     Piece selected;
     int turn;
     boolean checkTest = true;
+    int state;
     public Board() {
         resetBoard();
     }
