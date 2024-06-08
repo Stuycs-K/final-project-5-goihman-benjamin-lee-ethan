@@ -2,8 +2,10 @@ public class Board {
     Piece[][] board;
     Piece selected;
     int turn;
-    boolean checkTest = true;
+    boolean checkTest = false;
     int state;
+    King wKing = null;
+    King bKing = null;
     public Board() {
         resetBoard();
     }
@@ -33,14 +35,7 @@ public class Board {
         return board[row][col];
     }
     public King getKing(boolean col){
-           for(Piece[] r : board){
-             for(Piece p: r){
-               if(p!=null && p.getName().equals("King") && p.getColor() == col){
-                   return (King) p;
-             }
-           }
-         }
-           return null;
+       return col ? wKing : bKing;
     }
     boolean move(int col, int row) {
         if (col < 0 || col >= 8 || row < 0 || row >= 8) {
@@ -117,7 +112,7 @@ public class Board {
         board[0][5] = new Bishop(loadImage("pieces/white-bishop.png"), 5, 0, true);
         board[0][6] = new Knight(loadImage("pieces/white-knight.png"), 6, 0, true);
         board[0][7] = new Rook(loadImage("pieces/white-rook.png"), 7, 0, true);
-
+        wKing = (King) board[0][4];
         
           for (int col = 0; col < 8; col++) {
             board[1][col] = new Pawn(loadImage("pieces/white-pawn.png"), col, 1, true);
@@ -133,7 +128,8 @@ public class Board {
         board[7][5] = new Bishop(loadImage("pieces/black-bishop.png"), 5, 7, false);
         board[7][6] = new Knight(loadImage("pieces/black-knight.png"), 6, 7, false);
         board[7][7] = new Rook(loadImage("pieces/black-rook.png"), 7, 7, false);
-        
+          bKing = (King) board[7][4];
+
             for (int col = 0; col < 8; col++) {
               board[6][col] = new Pawn(loadImage("pieces/black-pawn.png"), col, 6, false);
           

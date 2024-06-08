@@ -17,7 +17,7 @@ class Pawn extends Piece {
       if (b.get(this.getCol() + 1, this.getRow() + 1) != null
           && b.get(this.getCol() + 1, this.getRow() + 1).getColor()
               != this.getColor()
-          && tryMove(this.getCol() + 1, this.getRow() + 1)) {
+          && tryMove(this.getCol() + 1, this.getRow() + 1,teamColor)) {
         int[] coord = new int[] {this.getCol() + 1, this.getRow() + 1};
         f.add(coord);
       }
@@ -25,7 +25,7 @@ class Pawn extends Piece {
       if (b.get(this.getCol() - 1, this.getRow() + 1) != null
           && b.get(this.getCol() - 1, this.getRow() + 1).getColor()
               != this.getColor()
-          && tryMove(this.getCol() - 1, this.getRow() + 1)) {
+          && tryMove(this.getCol() - 1, this.getRow() + 1,teamColor)) {
         int[] coord = new int[] {this.getCol() - 1, this.getRow() + 1};
         f.add(coord);
       }
@@ -33,19 +33,19 @@ class Pawn extends Piece {
       if (hasMoved != true) {
         if (b.get(this.getCol(), this.getRow() + 1) == null
             && b.get(this.getCol(), this.getRow() + 2) == null
-            && tryMove(this.getCol(), this.getRow() + 2)) {
+            && tryMove(this.getCol(), this.getRow() + 2,teamColor)) {
           int[] coord = new int[] {this.getCol(), this.getRow() + 2};
           f.add(coord);
         }
         if (b.get(this.getCol(), this.getRow() + 1) == null
-            && tryMove(this.getCol(), this.getRow() + 1)) {
+            && tryMove(this.getCol(), this.getRow() + 1,teamColor)) {
           int[] coord = new int[] {this.getCol(), this.getRow() + 1};
           f.add(coord);
         }
 
       } // check first move double jump
       if (b.get(this.getCol(), this.getRow() + 1) == null
-          && tryMove(this.getCol(), this.getRow() + 1)) {
+          && tryMove(this.getCol(), this.getRow() + 1,teamColor)) {
         int[] coord = new int[] {this.getCol(), this.getRow() + 1};
         f.add(coord);
       }
@@ -54,7 +54,7 @@ class Pawn extends Piece {
       if (b.get(this.getCol() - 1, this.getRow() - 1) != null
           && b.get(this.getCol() - 1, this.getRow() - 1).getColor()
               != this.getColor()
-          && tryMove(this.getCol() - 1, this.getRow() - 1)) {
+          && tryMove(this.getCol() - 1, this.getRow() - 1,teamColor)) {
         int[] coord = new int[] {this.getCol() - 1, this.getRow() - 1};
         f.add(coord);
       }
@@ -62,7 +62,7 @@ class Pawn extends Piece {
       if (b.get(this.getCol() + 1, this.getRow() - 1) != null
           && b.get(this.getCol() + 1, this.getRow() - 1).getColor()
               != this.getColor()
-          && tryMove(this.getCol() + 1, this.getRow() - 1)) {
+          && tryMove(this.getCol() + 1, this.getRow() - 1,teamColor)) {
         int[] coord = new int[] {this.getCol() + 1, this.getRow() - 1};
         f.add(coord);
       }
@@ -70,19 +70,19 @@ class Pawn extends Piece {
       if (hasMoved != true) {
         if (b.get(this.getCol(), this.getRow() - 1) == null
             && b.get(this.getCol(), this.getRow() - 2) == null
-            && tryMove(this.getCol(), this.getRow() - 2)) {
+            && tryMove(this.getCol(), this.getRow() - 2,teamColor)) {
           int[] coord = new int[] {this.getCol(), this.getRow() - 2};
           f.add(coord);
         }
         if (b.get(this.getCol(), this.getRow() - 1) == null
-            && tryMove(this.getCol(), this.getRow() - 1)) {
+            && tryMove(this.getCol(), this.getRow() - 1,teamColor)) {
           int[] coord = new int[] {this.getCol(), this.getRow() - 1};
           f.add(coord);
         }
 
       } // check first move double jump
       if (b.get(this.getCol(), this.getRow() - 1) == null
-          && tryMove(this.getCol(), this.getRow() - 1)) {
+          && tryMove(this.getCol(), this.getRow() - 1,teamColor)) {
         int[] coord = new int[] {this.getCol(), this.getRow() - 1};
         f.add(coord);
       }

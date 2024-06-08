@@ -27,12 +27,12 @@ class Rook extends Piece {
         currentRow += dRow;
         if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
           if (b.get(currentCol, currentRow) == null) {
-            if(tryMove(currentCol,currentRow)){
+            if(tryMove(currentCol,currentRow,teamColor)){
             int[] move = {currentCol, currentRow};
             endList.add(move);
             }
           } else {
-            if (b.get(currentCol,currentRow)!=null && tryMove(currentCol,currentRow) && b.get(currentCol, currentRow).getColor() != this.getColor()) {
+            if (b.get(currentCol,currentRow)!=null && tryMove(currentCol,currentRow,teamColor) && b.get(currentCol, currentRow).getColor() != this.getColor()) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
             }

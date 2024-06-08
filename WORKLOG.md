@@ -66,6 +66,7 @@
 - Move directory to correct spot
 - Add checkmate
 - Make pieces able to sacrfice themselves more than one spot
+- Add gameover screen
 ## Ethan Lee
 
 ### 5/22/2024

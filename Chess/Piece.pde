@@ -38,12 +38,23 @@ abstract class Piece{
      row=nRow;
      hasMoved = true;
   }
-  public boolean tryMove(int nCol, int nRow){
+  public boolean tryMove(int nCol, int nRow, boolean colorT){
     if(!getName().equals("King")){
     Piece old = b.board[nRow][nCol];
     b.board[nRow][nCol] = b.board[row][col];
     b.board[row][col] = null;
-    boolean ret = !b.getKing(teamColor).isInCheck();
+    King k = b.getKing(colorT);
+    if(k==null){
+      println("king is null");
+      print(nCol + " " + nRow);
+      print(getName());
+      print(colorT);
+    }
+    boolean ret = true;
+    try{ret=!k.isInCheck();}
+    catch(Exception e){
+      e.printStackTrace();
+    }
     b.board[row][col] = b.board[nRow][nCol];
     b.board[nRow][nCol] = old; 
     return ret;

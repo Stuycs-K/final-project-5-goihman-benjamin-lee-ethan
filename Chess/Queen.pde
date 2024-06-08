@@ -26,13 +26,13 @@ class Queen extends Piece {
         if (currentCol >= 0 && currentCol < 8 && currentRow >= 0
             && currentRow < 8) {
           if (b.get(currentCol, currentRow) == null) {
-            if(tryMove(currentCol,currentRow)){
+            if(tryMove(currentCol,currentRow,teamColor)){
             int[] move = {currentCol, currentRow};
             endList.add(move);
             }
           } else {
             if (b.get(currentCol,currentRow)!=null && b.get(currentCol, currentRow).getColor() != this.getColor()
-                && tryMove(currentCol, currentRow)) {
+                && tryMove(currentCol, currentRow,teamColor)) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
             }

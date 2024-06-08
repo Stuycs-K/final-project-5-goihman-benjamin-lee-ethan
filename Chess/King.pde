@@ -113,7 +113,7 @@ class King extends Piece {
         Piece piece = b.get(newCol, newRow);
 
         if (piece == null || piece.getColor() != isWhite) {
-          if (tryMove(newCol, newRow)) {
+          if (tryMove(newCol, newRow,teamColor)) {
             int[] move = {newCol, newRow};
             moves.add(move);
           }
@@ -129,8 +129,8 @@ class King extends Piece {
             break;
           }
         }
-        if (canCastle && tryMove(6, row)) {
-          if (tryMove(6, row)) {
+        if (canCastle) {
+          if (tryMove(6, row, teamColor)) {
             int[] move = {6, row};
             moves.add(move);
           }
@@ -144,8 +144,8 @@ class King extends Piece {
             break;
           }
         }
-        if (canCastle && tryMove(2, row)) {
-          if (tryMove(2, row)) {
+        if (canCastle) {
+          if (tryMove(2, row, teamColor)) {
             int[] move = {2, row};
             moves.add(move);
           }

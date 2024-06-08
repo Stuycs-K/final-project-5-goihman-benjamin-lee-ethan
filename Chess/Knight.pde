@@ -21,7 +21,7 @@ class Knight extends Piece {
         Piece piece = b.get(newCol, newRow);
 
         if ((piece == null
-            || piece.getColor() != isWhite) && tryMove(newCol, newRow)) {
+            || piece.getColor() != isWhite) && tryMove(newCol, newRow,teamColor)) {
           int[] move = {newCol, newRow};
           f.add(move);
         }
