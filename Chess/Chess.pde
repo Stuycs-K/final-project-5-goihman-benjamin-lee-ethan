@@ -93,21 +93,24 @@ void mouseClicked() {
     }
   if(b.isInCheckMate(b.turn%2==0)){
       state=1;
-      winner=(b.turn-1)%2==0 ? "White" : "Black";   
-    }}
-  
-  else {
+      winner=(b.turn-1)%2==0 ? "White" : "Black"; 
+      fill(0, 102, 153);
+      rect(600, 500, 200, 100);
       fill(0, 102, 153);
       rect(300, 200, 800, 200);
       textSize(48);
-      textAlign(CENTER, CENTER);
-      text(winner + " wins!", 700, 300);
-      
-      fill(0, 102, 153);
-      rect(600, 500, 200, 100);
-      fill(255);
+      if(winner.equals("White")){
+        fill(255,255,255);
+      }
+      else{
+        fill(0,0,0);
+      }
+      text(winner + " wins!", 600, 300);
       textSize(32);
-      text("Play Again", 700, 550);
+      text("Play Again", 625, 560);
+    }}
+  
+  else {
       
       if (mouseX >= 600 && mouseX <= 800 && mouseY >= 500 && mouseY <= 600) {
           b.resetBoard();
