@@ -62,6 +62,10 @@
 ### 6/6/2024
 - Fix check checking for rook and bishop get rid of null error
 
+### 6/8/2024
+- Move directory to correct spot
+- Add checkmate
+- Make pieces able to sacrfice themselves more than one spot
 ## Ethan Lee
 
 ### 5/22/2024

@@ -44,9 +44,9 @@ abstract class Piece{
     b.board[row][col] = null;
     boolean ret = !b.getKing(teamColor).isInCheck();
     b.board[row][col] = b.board[nRow][nCol];
-    b.board[nRow][nCol] = old;  
-    print(getName());
-    print(ret);
+    b.board[nRow][nCol] = old; 
+    println();
+    print(col,row);
     return ret;
   }
 }

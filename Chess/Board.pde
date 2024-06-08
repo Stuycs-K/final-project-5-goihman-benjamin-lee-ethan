@@ -8,12 +8,18 @@ public class Board {
     }
     public void shuffle() {};
     public void flip() {};
-    public boolean isInCheck() {
-        return false;
-    };
-    public boolean isInCheckMate() {
-        return false;
-    };
+
+    public boolean isInCheckMate(boolean col) {
+      boolean cM = true;
+      for(Piece[] r : board){
+             for(Piece p: r){
+               if(p!=null && p.getColor() == col){
+                   cM = p.validMoves().size() != 0 ? false : cM;
+             }
+           }
+         }
+      return cM;
+    }
     public boolean isStaleMate() {
         return false;
     }

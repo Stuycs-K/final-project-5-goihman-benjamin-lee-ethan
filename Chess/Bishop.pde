@@ -19,20 +19,17 @@ class Bishop extends Piece {
       int currentCol = col;
       int currentRow = row;
       works = true;
-      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0
-          && currentRow < 8 && works) {
+      while (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8 && works) {
         currentCol += dCol;
         currentRow += dRow;
-        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0
-            && currentRow < 8) {
-          if (b.get(currentCol, currentRow) == null
-              && tryMove(currentCol, currentRow)) {
+        if (currentCol >= 0 && currentCol < 8 && currentRow >= 0 && currentRow < 8) {
+          if (b.get(currentCol, currentRow) == null) {
+            if(tryMove(currentCol,currentRow)){
             int[] move = {currentCol, currentRow};
-
             endList.add(move);
+          }
           } else {
-            if (b.get(currentCol,currentRow)!= null && b.get(currentCol, currentRow).getColor() != this.getColor()
-                && tryMove(currentCol, currentRow)) {
+            if (b.get(currentCol,currentRow)!=null && tryMove(currentCol,currentRow) && b.get(currentCol, currentRow).getColor() != this.getColor()) {
               int[] move = {currentCol, currentRow};
               endList.add(move);
             }
