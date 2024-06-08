@@ -55,6 +55,13 @@
 - Fixed castling rooks no longer show it only kings.
 - Formatted Main and Board.
 
+### 6/5/2024
+- Fix check (in some scenaiors)
+- Add check for check in all pieces + format them
+
+### 6/6/2024
+- Fix check checking for rook and bishop get rid of null error
+
 ## Ethan Lee
 
 ### 5/22/2024
@@ -89,3 +96,11 @@ Created skeleton for other pieces
 ### 5/31/2024
 - did rook validMoves()
 - did queen validMoves()
+
+### 6/3/2024
+- started king inCheck()
+
+### 6/4/2024 
+- finished king isInCheck()
+  	- incorporated arraylist to check when another piece sees it
+  	- Needs to be added to move
