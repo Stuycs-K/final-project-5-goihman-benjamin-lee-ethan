@@ -12,3 +12,4 @@ You can click yourself to unselect or click another peice of your same color to 
 ## Major-ish changes to prototype
 - isInCheck moved to king class, as it is depedent on the color of the king and the king peice more than the board class
 - All isValidMove methods removed as we validMoves can be used instead
+- Add state so that if the gameover screen is displayed we won't reset until you click on the restart box
