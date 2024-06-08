@@ -31,7 +31,7 @@ class King extends Piece {
           if (piece.getColor() != isWhite
               && (piece.getName().equals("Bishop")
                   || piece.getName().equals("Queen")
-                  || piece.getName().equals("Rook")    )) {
+                      )) {
             System.out.println("Check detected by " + piece.getName() + " at ("
                 + currentCol + ", " + currentRow + ")");
             return true;
