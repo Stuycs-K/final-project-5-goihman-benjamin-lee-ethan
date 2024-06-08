@@ -1,8 +1,11 @@
 Board b;
-
+int state;
+String winner;
 void setup() {
     size(1400, 720);
     b = new Board();
+    state=0;
+    winner = null;
     drawBoard();
     drawPieces();
     textSize(64);
@@ -21,7 +24,7 @@ void mouseClicked() {
     int row = (mouseY - offsetY) / squareSize;
     println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
     println("Translated to board coordinates: (" + col + ", " + row + ")");
-
+    if(state==0){
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
         Piece clickedPiece = b.get(col, row);
         if (clickedPiece != null) {
@@ -88,12 +91,40 @@ void mouseClicked() {
     } else {
         println("Click out of board bounds.");
     }
+  if(b.isInCheckMate(b.turn%2==0)){
+      state=1;
+      winner=(b.turn-1)%2==0 ? "White" : "Black"; 
+      fill(0, 102, 153);
+      rect(600, 500, 200, 100);
+      fill(0, 102, 153);
+      rect(300, 200, 800, 200);
+      textSize(48);
+      if(winner.equals("White")){
+        fill(255,255,255);
+      }
+      else{
+        fill(0,0,0);
+      }
+      text(winner + " wins!", 600, 300);
+      textSize(32);
+      text("Play Again", 625, 560);
+    }}
+  
+  else {
+      
+      if (mouseX >= 600 && mouseX <= 800 && mouseY >= 500 && mouseY <= 600) {
+          b.resetBoard();
+          state = 0;
+          winner = null;
+          drawBoard();
+          drawPieces();
+          textSize(64);
+          fill(255, 255, 255);
+          text("White's turn", 4, 64);
+      }
+}
 
-    if(b.isInCheckMate(b.turn%2==0)){
-      println();
-      print("GG This game was won by: ");
-      print( (b.turn-1)%2==0 ? "White" : "Black");
-    }
+    
 
 
 }

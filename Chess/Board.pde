@@ -3,6 +3,7 @@ public class Board {
     Piece selected;
     int turn;
     boolean checkTest = true;
+    int state;
     public Board() {
         resetBoard();
     }
@@ -106,7 +107,7 @@ public class Board {
         this.selected = null;
         board = new Piece[8][8];
         
-
+    if(!checkTest){
         // Initialize white pieces
         board[0][0] = new Rook(loadImage("pieces/white-rook.png"), 0, 0, true);
         board[0][1] = new Knight(loadImage("pieces/white-knight.png"), 1, 0, true);
@@ -117,12 +118,11 @@ public class Board {
         board[0][6] = new Knight(loadImage("pieces/white-knight.png"), 6, 0, true);
         board[0][7] = new Rook(loadImage("pieces/white-rook.png"), 7, 0, true);
 
-        if (!checkTest){
         
           for (int col = 0; col < 8; col++) {
             board[1][col] = new Pawn(loadImage("pieces/white-pawn.png"), col, 1, true);
         }
-        }
+        
 
         // Initialize black pieces
         board[7][0] = new Rook(loadImage("pieces/black-rook.png"), 0, 7, false);
@@ -134,10 +134,9 @@ public class Board {
         board[7][6] = new Knight(loadImage("pieces/black-knight.png"), 6, 7, false);
         board[7][7] = new Rook(loadImage("pieces/black-rook.png"), 7, 7, false);
         
-        if (!checkTest){
             for (int col = 0; col < 8; col++) {
               board[6][col] = new Pawn(loadImage("pieces/black-pawn.png"), col, 6, false);
-          }
+          
 
         }
 
@@ -149,6 +148,21 @@ public class Board {
                 board[row][col] = null;
             }
         }
+    }
+    else{
+        board[0][4] = new King(loadImage("pieces/white-king.png"), 4, 0, true);
+        board[7][0] = new Rook(loadImage("pieces/black-rook.png"), 0, 7, false);
+        board[7][1] = new Knight(loadImage("pieces/black-knight.png"), 1, 7, false);
+        board[7][2] = new Bishop(loadImage("pieces/black-bishop.png"), 2, 7, false);
+        board[7][3] = new Queen(loadImage("pieces/black-queen.png"), 3, 7, false);
+        board[7][4] = new King(loadImage("pieces/black-king.png"), 4, 7, false);
+        board[7][5] = new Bishop(loadImage("pieces/black-bishop.png"), 5, 7, false);
+        board[7][6] = new Knight(loadImage("pieces/black-knight.png"), 6, 7, false);
+        board[7][7] = new Rook(loadImage("pieces/black-rook.png"), 7, 7, false);
+
+      
+    }
+    
 
     }
     public boolean select(int col, int row) {
