@@ -21,8 +21,7 @@ void mouseClicked() {
     int row = (mouseY - offsetY) / squareSize;
     println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
     println("Translated to board coordinates: (" + col + ", " + row + ")");
-    //if(!b.isInCheckMate(b.turn%2==0)){
-    if(true){
+
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
         Piece clickedPiece = b.get(col, row);
         if (clickedPiece != null) {
@@ -88,9 +87,12 @@ void mouseClicked() {
         drawPieces();
     } else {
         println("Click out of board bounds.");
-    }}
-    else{
-      print("gg");
+    }
+
+    if(b.isInCheckMate(b.turn%2==0)){
+      println();
+      print("GG This game was won by: ");
+      print( (b.turn-1)%2==0 ? "White" : "Black");
     }
 
 
