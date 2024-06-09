@@ -24,7 +24,7 @@ public class Board {
       return cM;
     }
     public boolean isStaleMate() {
-        return false;
+         return false;
     }
     
     
@@ -35,7 +35,7 @@ public class Board {
         return board[row][col];
     }
     public King getKing(boolean col){
-       return col ? wKing : bKing;
+       return col ? wKing : bKing; 
     }
     boolean move(int col, int row) {
         if (col < 0 || col >= 8 || row < 0 || row >= 8) {
@@ -104,34 +104,34 @@ public class Board {
         
     if(!checkTest){
         // Initialize white pieces
-        board[0][0] = new Rook(loadImage("pieces/white-rook.png"), 0, 0, true);
-        board[0][1] = new Knight(loadImage("pieces/white-knight.png"), 1, 0, true);
-        board[0][2] = new Bishop(loadImage("pieces/white-bishop.png"), 2, 0, true);
-        board[0][3] = new Queen(loadImage("pieces/white-queen.png"), 3, 0, true);
-        board[0][4] = new King(loadImage("pieces/white-king.png"), 4, 0, true);
-        board[0][5] = new Bishop(loadImage("pieces/white-bishop.png"), 5, 0, true);
-        board[0][6] = new Knight(loadImage("pieces/white-knight.png"), 6, 0, true);
-        board[0][7] = new Rook(loadImage("pieces/white-rook.png"), 7, 0, true);
+        board[0][0] = new Rook(loadImage("pieces/black-rook.png"), 0, 0, false);
+        board[0][1] = new Knight(loadImage("pieces/black-knight.png"), 1, 0, false);
+        board[0][2] = new Bishop(loadImage("pieces/black-bishop.png"), 2, 0, false);
+        board[0][3] = new Queen(loadImage("pieces/black-queen.png"), 3, 0, false);
+        board[0][4] = new King(loadImage("pieces/black-king.png"), 4, 0, false);
+        board[0][5] = new Bishop(loadImage("pieces/black-bishop.png"), 5, 0, false);
+        board[0][6] = new Knight(loadImage("pieces/black-knight.png"), 6, 0, false);
+        board[0][7] = new Rook(loadImage("pieces/black-rook.png"), 7, 0, false);
         wKing = (King) board[0][4];
         
           for (int col = 0; col < 8; col++) {
-            board[1][col] = new Pawn(loadImage("pieces/white-pawn.png"), col, 1, true);
+            board[1][col] = new Pawn(loadImage("pieces/black-pawn.png"), col, 1, false);
         }
         
 
         // Initialize black pieces
-        board[7][0] = new Rook(loadImage("pieces/black-rook.png"), 0, 7, false);
-        board[7][1] = new Knight(loadImage("pieces/black-knight.png"), 1, 7, false);
-        board[7][2] = new Bishop(loadImage("pieces/black-bishop.png"), 2, 7, false);
-        board[7][3] = new Queen(loadImage("pieces/black-queen.png"), 3, 7, false);
-        board[7][4] = new King(loadImage("pieces/black-king.png"), 4, 7, false);
-        board[7][5] = new Bishop(loadImage("pieces/black-bishop.png"), 5, 7, false);
-        board[7][6] = new Knight(loadImage("pieces/black-knight.png"), 6, 7, false);
-        board[7][7] = new Rook(loadImage("pieces/black-rook.png"), 7, 7, false);
+        board[7][0] = new Rook(loadImage("pieces/white-rook.png"), 0, 7, true);
+        board[7][1] = new Knight(loadImage("pieces/white-knight.png"), 1, 7, true);
+        board[7][2] = new Bishop(loadImage("pieces/white-bishop.png"), 2, 7, true);
+        board[7][3] = new Queen(loadImage("pieces/white-queen.png"), 3, 7, true);
+        board[7][4] = new King(loadImage("pieces/white-king.png"), 4, 7, true);
+        board[7][5] = new Bishop(loadImage("pieces/white-bishop.png"), 5, 7, true);
+        board[7][6] = new Knight(loadImage("pieces/white-knight.png"), 6, 7, true);
+        board[7][7] = new Rook(loadImage("pieces/white-rook.png"), 7, 7, true);
           bKing = (King) board[7][4];
 
             for (int col = 0; col < 8; col++) {
-              board[6][col] = new Pawn(loadImage("pieces/black-pawn.png"), col, 6, false);
+              board[6][col] = new Pawn(loadImage("pieces/white-pawn.png"), col, 6, true);
           
 
         }

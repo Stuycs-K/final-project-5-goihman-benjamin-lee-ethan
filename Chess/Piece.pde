@@ -30,6 +30,7 @@ abstract class Piece{
   
 
   abstract ArrayList<int[]> validMoves();
+
   public String getName(){
   return "";
   }

@@ -30,4 +30,6 @@ class Knight extends Piece {
 
     return f;
   }
+  
+
 }

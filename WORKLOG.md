@@ -112,5 +112,6 @@ Created skeleton for other pieces
 
 ### 6/8/20224
 - Fixed castling through and in check
-- Created alternative board setups to demonstrate different aspects of code
-- Created a menu to demonstrate piece options
+- Stalemate included and impelemented in winner display after game end
+- Swapped black and white pieces so that white is on the bottom and that the pieces are in proper spot
+	- dependant on square colors too

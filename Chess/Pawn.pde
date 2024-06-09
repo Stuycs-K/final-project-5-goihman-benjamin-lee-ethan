@@ -13,7 +13,7 @@ class Pawn extends Piece {
 
   public ArrayList<int[]> validMoves() {
     ArrayList<int[]> f = new ArrayList<int[]>();
-    if (teamColor) {
+    if (!teamColor) {
       if (b.get(this.getCol() + 1, this.getRow() + 1) != null
           && b.get(this.getCol() + 1, this.getRow() + 1).getColor()
               != this.getColor()
@@ -89,4 +89,5 @@ class Pawn extends Piece {
       return f;
     }
   }
+
 }

@@ -41,4 +41,5 @@ class Bishop extends Piece {
 
     return endList;
   }
+  
 }

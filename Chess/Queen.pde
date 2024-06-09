@@ -44,4 +44,6 @@ class Queen extends Piece {
 
     return endList;
   }
+
+
 }
