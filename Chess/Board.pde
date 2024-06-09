@@ -3,7 +3,6 @@ public class Board {
     Piece selected;
     int turn;
     boolean checkTest = false;
-    int state;
     King wKing = null;
     King bKing = null;
     public Board() {
@@ -44,7 +43,29 @@ public class Board {
         if (selected == null) {
             return false;
         }
-        if (selected.getClass().getSimpleName().equals("King") && !selected.hasMoved) {
+        if(selected.getName().equals("Pawn") && (row == 0 || row==7)){
+          state=2;
+          board[selected.getRow()][selected.getCol()] = null;
+          board[row][col] = selected;
+          selected = board[row][col];
+          selected.move(col, row);
+          int squareSize = min(width, height) / 8;
+          if(selected.getColor()){
+            PImage[] imgs = {loadImage("pieces/white-queen.png"),loadImage("pieces/white-rook.png"),loadImage("pieces/white-knight.png"),loadImage("pieces/white-bishop.png")};
+            for(int i = 0; i < imgs.length; i++){
+              image(imgs[i], 4, 74 + i*103, squareSize, squareSize);
+            }
+          }
+          else{
+            PImage[] imgs = {loadImage("pieces/black-queen.png"),loadImage("pieces/black-rook.png"),loadImage("pieces/black-knight.png"),loadImage("pieces/black-bishop.png")};
+            for(int i = 0; i < imgs.length; i++){
+              image(imgs[i], 4, 74 + i*103, squareSize, squareSize);
+            }
+          }
+          return true;
+        }
+        
+        if (selected.getName().equals("King") && !selected.hasMoved) {
             if (col == 6 && selected.getCol() == 4) {
                 if (board[row][7] != null && board[row][7].getClass().getSimpleName().equals("Rook") && !board[row][7].hasMoved) {
                     boolean canCastle = true;

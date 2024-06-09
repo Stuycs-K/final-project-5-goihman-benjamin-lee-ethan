@@ -27,6 +27,7 @@ void mouseClicked() {
     if(state==0){
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
         Piece clickedPiece = b.get(col, row);
+        drawBoard();
         if (clickedPiece != null) {
             if (b.select(col, row)) {
                 println("Selection successful");
@@ -41,7 +42,6 @@ void mouseClicked() {
                         }
                     }
                     if (isValidMove && b.move(col, row)) {
-                        b.selected = null;
                         println("Move successful");
                     } else {
                         println("Invalid move");
@@ -60,7 +60,7 @@ void mouseClicked() {
                 }
                 if (isValidMove) {
                     b.move(col, row);
-                    b.selected = null;
+                    //b.selected = null;
                     println("Move successful");
                 } else {
                     b.selected = null;
@@ -68,7 +68,8 @@ void mouseClicked() {
                 }
             }
         }
-        drawBoard();
+        if(state==0){
+          
         if (b.turn % 2 == 0) {
             fill(255, 255, 255);
             text("White's turn", 4, 64);
@@ -86,11 +87,12 @@ void mouseClicked() {
                 int moveRow = move[1];
                 ellipse(offsetX + moveCol * squareSize + squareSize / 2, offsetY + moveRow * squareSize + squareSize / 2, squareSize / 2, squareSize / 2);
             }
-        }
+        }}
         drawPieces();
     } else {
         println("Click out of board bounds.");
     }
+    if(state==0){
   if(b.isInCheckMate(b.turn%2==0)){
       state=1;
       if (b.getKing(b.turn%2==0).isInCheck() == false){
@@ -111,9 +113,9 @@ void mouseClicked() {
       text(winner + " wins!", 600, 300);
       textSize(32);
       text("Play Again", 625, 560);
-    }}
+    }}}
   
-  else {
+  else if (state==1){
       
       if (mouseX >= 600 && mouseX <= 800 && mouseY >= 500 && mouseY <= 600) {
           b.resetBoard();
@@ -125,6 +127,67 @@ void mouseClicked() {
           fill(255, 255, 255);
           text("White's turn", 4, 64);
       }
+   
+}
+else if (state == 2) {
+    // Assuming the selected piece is the promoted pawn
+        int selectedPieceIndex = (mouseY - 74) / 103;
+        println();
+        println(mouseX,mouseY);
+        println(selectedPieceIndex);
+        Piece newPiece = null;
+        boolean wh = b.selected.getColor();
+        if (wh) {
+            // White pieces
+            switch (selectedPieceIndex) {
+                case 0:
+                    newPiece = new Queen(loadImage("pieces/white-queen.png"), b.selected.getCol(), b.selected.getRow(), true);
+                    break;
+                case 1:
+                    newPiece = new Rook(loadImage("pieces/white-rook.png"), b.selected.getCol(), b.selected.getRow(), true);
+                    break;
+                case 2:
+                    newPiece = new Knight(loadImage("pieces/white-knight.png"), b.selected.getCol(), b.selected.getRow(), true);
+                    break;
+                case 3:
+                    newPiece = new Bishop(loadImage("pieces/white-bishop.png"), b.selected.getCol(), b.selected.getRow(), true);
+                    break;
+            }
+        } else {
+            // Black pieces
+            switch (selectedPieceIndex) {
+                case 0:
+                    newPiece = new Queen(loadImage("pieces/black-queen.png"),  b.selected.getCol(), b.selected.getRow(), false);
+                    break;
+                case 1:
+                    newPiece = new Rook(loadImage("pieces/black-rook.png"),  b.selected.getCol(),  b.selected.getRow(), false);
+                    break;
+                case 2:
+                    newPiece = new Knight(loadImage("pieces/black-knight.png"),  b.selected.getCol(),  b.selected.getRow(), false);
+                    break;
+                case 3:
+                    newPiece = new Bishop(loadImage("pieces/black-bishop.png"),  b.selected.getCol(),  b.selected.getRow(), false);
+                    break;
+            }
+        }
+        
+        if (newPiece != null) {
+            b.board[b.selected.getRow()][b.selected.getCol()] = newPiece;
+            state = 0;
+            b.selected=null;
+            b.turn++;
+            drawBoard();
+            drawPieces();
+            textSize(64);
+            if(!wh){
+            fill(255, 255, 255);
+            text("White's turn", 4, 64);
+            }
+            else{
+                fill(0, 0, 0);
+                text("Black's turn", 1080, 64);
+            }
+        }
 }
 
     
