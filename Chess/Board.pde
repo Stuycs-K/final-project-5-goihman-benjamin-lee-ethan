@@ -5,6 +5,7 @@ public class Board {
     boolean checkTest = false;
     King wKing = null;
     King bKing = null;
+    int fiftyMoves = 0;
     public Board() {
         resetBoard();
     }
@@ -109,6 +110,13 @@ public class Board {
                     }
                 }
             }
+        }
+        if (selected.getClass().getSimpleName().equals("Pawn") || board[col][row] != null){
+          fiftyMoves = 0;
+          println("reset counter");
+        } else{
+          fiftyMoves ++;
+          println("one move closer to draw");
         }
         board[selected.getRow()][selected.getCol()] = null;
         board[row][col] = selected;
