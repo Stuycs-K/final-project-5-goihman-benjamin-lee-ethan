@@ -14,8 +14,8 @@ void setup() {
   textSize(64);
   fill(255, 255, 255);
   text("White's turn", 4, 64);
-  wTimer = new Timer(300000);
-  bTimer = new Timer(300000);
+  wTimer = new Timer(1500000);
+  bTimer = new Timer(1500000);
   lTime = System.currentTimeMillis();
 }
 
