@@ -4,11 +4,13 @@ String winner;
 Timer wTimer;
 Timer bTimer;
 long lTime;
+int test;
 void setup() {
   size(1400, 720);
-  b = new Board();
   state = 0;
   winner = null;
+  test=4;
+  b = new Board();
   drawBoard();
   drawPieces();
   textSize(64);
@@ -80,7 +82,10 @@ String formatTime(long milliseconds) {
     seconds = seconds % 60;
     return String.format("%02d:%02d", minutes, seconds);
 }
+//void keyPressed(){
+//b.resetBoard(); 
 
+//}
 
 void mouseClicked() {
   int boardSize = 8;
@@ -215,7 +220,7 @@ void mouseClicked() {
 
   } else if (state == 2) {
     // Assuming the selected piece is the promoted pawn
-    int selectedPieceIndex = (mouseY - 74) / 103;
+    int selectedPieceIndex = (mouseY - 144) / 103;
     println();
     println(mouseX, mouseY);
     println(selectedPieceIndex);

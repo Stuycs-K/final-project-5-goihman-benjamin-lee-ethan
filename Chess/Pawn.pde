@@ -32,7 +32,7 @@ class Pawn extends Piece {
       // check diag left capture
       if (hasMoved != true) {
         if (b.get(this.getCol(), this.getRow() + 1) == null
-            && b.get(this.getCol(), this.getRow() + 2) == null
+            && b.get(this.getCol(), this.getRow() + 2) == null && (this.getRow()+2  < 8)
             && tryMove(this.getCol(), this.getRow() + 2,teamColor)) {
           int[] coord = new int[] {this.getCol(), this.getRow() + 2};
           f.add(coord);
@@ -69,7 +69,7 @@ class Pawn extends Piece {
       // check diag left capture
       if (hasMoved != true) {
         if (b.get(this.getCol(), this.getRow() - 1) == null
-            && b.get(this.getCol(), this.getRow() - 2) == null
+            && b.get(this.getCol(), this.getRow() - 2) == null && (this.getRow()-2 >= 0)
             && tryMove(this.getCol(), this.getRow() - 2,teamColor)) {
           int[] coord = new int[] {this.getCol(), this.getRow() - 2};
           f.add(coord);

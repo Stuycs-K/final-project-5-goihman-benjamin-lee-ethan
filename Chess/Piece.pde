@@ -41,7 +41,11 @@ abstract class Piece{
   }
   public boolean tryMove(int nCol, int nRow, boolean colorT){
     if(!getName().equals("King")){
-    Piece old = b.board[nRow][nCol];
+    Piece old = null;
+    try{old = b.board[nRow][nCol];}
+    catch(Exception e){
+      e.printStackTrace();
+    }
     b.board[nRow][nCol] = b.board[row][col];
     b.board[row][col] = null;
     King k = b.getKing(colorT);
