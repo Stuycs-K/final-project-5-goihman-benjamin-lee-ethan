@@ -179,6 +179,8 @@ void mouseClicked() {
       winner = null;
       drawBoard();
       drawPieces();
+      wTimer = new Timer(1500000);
+      bTimer = new Timer(1500000);
       textSize(64);
       fill(255, 255, 255);
       text("White's turn", 4, 64);
