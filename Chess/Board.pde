@@ -112,7 +112,7 @@ public class Board {
         board[0][5] = new Bishop(loadImage("pieces/black-bishop.png"), 5, 0, false);
         board[0][6] = new Knight(loadImage("pieces/black-knight.png"), 6, 0, false);
         board[0][7] = new Rook(loadImage("pieces/black-rook.png"), 7, 0, false);
-        wKing = (King) board[0][4];
+        bKing = (King) board[0][4];
         
           for (int col = 0; col < 8; col++) {
             board[1][col] = new Pawn(loadImage("pieces/black-pawn.png"), col, 1, false);
@@ -128,7 +128,7 @@ public class Board {
         board[7][5] = new Bishop(loadImage("pieces/white-bishop.png"), 5, 7, true);
         board[7][6] = new Knight(loadImage("pieces/white-knight.png"), 6, 7, true);
         board[7][7] = new Rook(loadImage("pieces/white-rook.png"), 7, 7, true);
-          bKing = (King) board[7][4];
+          wKing = (King) board[7][4];
 
             for (int col = 0; col < 8; col++) {
               board[6][col] = new Pawn(loadImage("pieces/white-pawn.png"), col, 6, true);
