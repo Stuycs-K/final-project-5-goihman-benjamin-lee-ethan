@@ -205,7 +205,7 @@ void mouseClicked() {
     if (state == 0) {
       if (b.isInCheckMate(b.turn % 2 == 0)) {
         state = 1;
-        if (b.getKing(b.turn % 2 == 0).isInCheck() == false) {
+      if (b.getKing(b.turn%2==0).isInCheck() == false || b.fiftyMoves ==50){
           winner = "No one";
         } else {
           winner = (b.turn - 1) % 2 == 0 ? "White" : "Black";
