@@ -120,7 +120,7 @@ class King extends Piece {
         }
       }
     }
-    if (!hasMoved) {
+    if (!hasMoved && isInCheck() == false) {
       if (b.get(7, row) != null && b.get(7, row).getClass().getSimpleName().equals("Rook") && !b.get(7, row).hasMoved) {
         boolean canCastle = true;
         for (int c = 5; c <= 6; c++) {
