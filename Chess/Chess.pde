@@ -114,6 +114,9 @@ if (key=='r'){
   drawBoard();
   drawPieces();
 }
+if (key=='f'){
+b.fiftyMoves=48;
+}
 
 }
 
@@ -140,6 +143,7 @@ void mouseClicked() {
   else{
   if (state == 0) {
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
+      print(b.fiftyMoves);
       long t = System.currentTimeMillis();
       Piece clickedPiece = b.get(col, row);
       drawBoard();
@@ -210,7 +214,7 @@ void mouseClicked() {
       println("Click out of board bounds.");
     }
     if (state == 0) {
-      if(b.isStaleMate()){
+      if(b.isStaleMate()||b.fiftyMoves ==50){
           winner = "No one";
         fill(0, 102, 153);
         rect(600, 500, 200, 100);

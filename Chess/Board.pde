@@ -171,7 +171,7 @@ public boolean isStaleMate() {
                 }
             }
         }
-        if (selected.getClass().getSimpleName().equals("Pawn") || board[col][row] != null){
+        if (selected.getName().equals("Pawn") || board[row][col] != null){
           fiftyMoves = 0;
           println("reset counter");
         } else{
@@ -188,6 +188,7 @@ public boolean isStaleMate() {
 
 public void resetBoard() {
     this.turn = 0;
+    this.fiftyMoves=0;
     this.selected = null;
     board = new Piece[8][8];
   
@@ -205,7 +206,7 @@ public void resetBoard() {
             bKing = (King) board[0][4];
             board[7][4] = new King(loadImage("pieces/white-king.png"), 4, 7, true);
             wKing = (King) board[7][4];
-            board[1][3] = new Queen(loadImage("pieces/white-queen.png"), 3, 1, true);
+            board[2][3] = new Queen(loadImage("pieces/white-queen.png"), 3, 2, true);
             board[2][5] = new Rook(loadImage("pieces/white-rook.png"), 5, 2, true);
             break;
         
