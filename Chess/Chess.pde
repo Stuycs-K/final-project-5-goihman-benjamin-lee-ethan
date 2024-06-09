@@ -120,12 +120,12 @@ void mouseClicked() {
   int row = (mouseY - offsetY) / squareSize;
   println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
   println("Translated to board coordinates: (" + col + ", " + row + ")");
-  if (mouseX >= 280 && mouseX <= 320 && mouseY >= 100 && mouseY <= 160) {
+  if (mouseX >= 280 && mouseX <= 320 && mouseY >= 100 && mouseY <= 160 && (state==0||state==2)) {
         if (wTimer.timeLeft() > 30000) {
             wTimer.removeTime(30000);
             bTimer.addTime(30000);
         }
-    } else if (mouseX >= 1356 && mouseX <= 1396 && mouseY >= 100 && mouseY <= 160) {
+    } else if (mouseX >= 1356 && mouseX <= 1396 && mouseY >= 100 && mouseY <= 160 && (state==0||state==2)) {
         if (bTimer.timeLeft() > 30000) {
             bTimer.removeTime(30000);
             wTimer.addTime(30000);
