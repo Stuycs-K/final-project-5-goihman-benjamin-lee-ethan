@@ -1,11 +1,14 @@
 class Pawn extends Piece {
+  boolean justJumped = false;
   Pawn(PImage image, int col, int row, boolean teamColor) {
     super(image, col, row, teamColor);
+    
   }
-
-  public boolean promote(int col, int row) {
-    return true;
+  
+  public void justJumped(boolean x){
+    justJumped = x;
   }
+  
 
   public String getName() {
     return "Pawn";

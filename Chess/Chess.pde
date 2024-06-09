@@ -5,6 +5,7 @@ Timer wTimer;
 Timer bTimer;
 long lTime;
 int test;
+ArrayList<Board> finalTracker = new ArrayList<Board>();
 void setup() {
   size(1400, 720);
   state = 0;
@@ -19,6 +20,7 @@ void setup() {
   wTimer = new Timer(1500000);
   bTimer = new Timer(1500000);
   lTime = System.currentTimeMillis();
+  finalTracker.add(b);
 }
 
 void draw() {
@@ -108,6 +110,12 @@ if(key=='p'){
   drawBoard();
   drawPieces();
 }
+if (key=='b'){
+  test=5;
+  b = finalTracker.get(finalTracker.size()-2);
+  drawBoard();
+  drawPieces();
+}
 
 }
 
@@ -171,6 +179,7 @@ void mouseClicked() {
             b.move(col, row);
             // b.selected = null;
             println("Move successful");
+            finalTracker.add(b);
           } else {
             b.selected = null;
             println("Deselected piece");

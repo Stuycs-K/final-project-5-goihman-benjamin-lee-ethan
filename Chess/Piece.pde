@@ -4,6 +4,7 @@ abstract class Piece{
   final boolean teamColor;
   int row; int col;
   boolean hasMoved;
+  boolean justJumped;
   
   
   Piece(PImage image, int col, int row, boolean teamColor){
@@ -12,6 +13,7 @@ abstract class Piece{
     this.row = row;
     this.teamColor = teamColor;
     hasMoved = false;
+    justJumped = false;
   }
   
   public PImage getImage(){
@@ -33,6 +35,10 @@ abstract class Piece{
 
   public String getName(){
   return "";
+  }
+  
+    public void justJumped(boolean x){
+    justJumped = x;
   }
   public void move(int nCol, int nRow){
      col=nCol;
