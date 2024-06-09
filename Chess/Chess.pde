@@ -9,7 +9,7 @@ void setup() {
   size(1400, 720);
   state = 0;
   winner = null;
-  test=4;
+  test=0;
   b = new Board();
   drawBoard();
   drawPieces();
@@ -82,10 +82,33 @@ String formatTime(long milliseconds) {
     seconds = seconds % 60;
     return String.format("%02d:%02d", minutes, seconds);
 }
-//void keyPressed(){
-//b.resetBoard(); 
+void keyPressed(){
+if(key=='c'){
+  test=1;
+  b.resetBoard();
+  drawBoard();
+  drawPieces();
+}
+if(key=='m'){
+  test=2;
+  b.resetBoard();
+  drawBoard();
+  drawPieces();
+}
+if(key=='l'){
+  test=3;
+  b.resetBoard();
+  drawBoard();
+  drawPieces();
+}
+if(key=='p'){
+  test=4;
+  b.resetBoard();
+  drawBoard();
+  drawPieces();
+}
 
-//}
+}
 
 void mouseClicked() {
   int boardSize = 8;
