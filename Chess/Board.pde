@@ -8,7 +8,8 @@ public class Board {
     public Board() {
         resetBoard();
     }
-    public void shuffle() {};
+    public void shuffle() {
+    }
     public void flip() {};
 
     public boolean isInCheckMate(boolean col) {
@@ -122,7 +123,7 @@ public void resetBoard() {
     this.turn = 0;
     this.selected = null;
     board = new Piece[8][8];
-    print(test);
+  
     switch(test) {
         case 1: // Easy check testing
             board[0][4] = new King(loadImage("pieces/black-king.png"), 4, 0, false);

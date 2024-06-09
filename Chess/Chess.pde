@@ -22,6 +22,7 @@ void setup() {
 }
 
 void draw() {
+    if(state==0 || state==2){
     long currentTime = System.currentTimeMillis();
     if (currentTime - lTime >= 1000) {
         if (b.turn % 2 == 0) {
@@ -31,7 +32,7 @@ void draw() {
         }
         lTime = currentTime;
     }
-
+    }
     noStroke();
     fill(220, 220, 220);
     rect(4, 100, 300, 40);
