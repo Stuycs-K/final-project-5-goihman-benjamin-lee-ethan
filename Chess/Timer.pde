@@ -1,25 +1,20 @@
 public class Timer {
-    private int len;
-    private long timeLast;
+    private long len; // Length of the timer in milliseconds
 
-    public Timer(int len) {
+    public Timer(long len) {
         this.len = len;
-        this.timeLast = System.currentTimeMillis();
     }
 
-    public int timeLeft() {
-        long currentTime = System.currentTimeMillis();
-        long elapsed = (currentTime - timeLast) / 1000;
-        int remaining = len - (int) elapsed;
-        return remaining > 0 ? remaining : 0;
+    public long timeLeft() {
+        return len;
     }
 
-    public void addTime(int seconds) {
-        this.len += seconds;
+    public void addTime(long milliseconds) {
+        this.len += milliseconds;
     }
 
-    public void removeTime(int seconds) {
-        this.len -= seconds;
+    public void removeTime(long milliseconds) {
+        this.len -= milliseconds;
         if (this.len < 0) {
             this.len = 0;
         }

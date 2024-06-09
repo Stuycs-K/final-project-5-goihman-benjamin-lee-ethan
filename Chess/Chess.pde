@@ -1,6 +1,9 @@
 Board b;
 int state;
 String winner;
+Timer wTimer;
+Timer bTimer;
+long lTime;
 void setup() {
     size(1400, 720);
     b = new Board();
@@ -11,9 +14,64 @@ void setup() {
     textSize(64);
     fill(255, 255, 255);
     text("White's turn", 4, 64);
+    wTimer = new Timer(300000);
+    bTimer = new Timer(300000);
+    lTime = System.currentTimeMillis();
 }
 
-void draw() {}
+void draw() {
+    long currentTime = System.currentTimeMillis();
+    if (currentTime - lTime >= 1000) {
+        if (b.turn % 2 == 0) {
+            wTimer.removeTime(1000);
+        } else {
+            bTimer.removeTime(1000);
+        }
+        lTime = currentTime;
+    }
+
+    // Redraw only the parts of the screen that display timers
+    noStroke();
+    fill(220, 220, 220); // Background color
+    rect(4, 100, 300, 40); // Clear area for White's timer
+    rect(1080, 100, 300, 40); // Clear area for Black's timer
+    stroke(0);
+
+
+    // Display remaining time for both players
+    fill(255, 255, 255);
+    textSize(32);
+    text("White Time: " + formatTime(wTimer.timeLeft()), 4, 128);
+    fill(0,0,0);
+    text("Black Time: " + formatTime(bTimer.timeLeft()), 1080, 128);
+
+    if (wTimer.timeLeft() == 0 || bTimer.timeLeft() == 0) {
+        state = 1;
+        winner = (wTimer.timeLeft() == 0) ? "Black" : "White";
+        fill(0, 102, 153);
+        rect(600, 500, 200, 100);
+        rect(300, 200, 800, 200);
+        textSize(48);
+        if (winner.equals("White")) {
+            fill(255, 255, 255);
+        } else {
+            fill(0, 0, 0);
+        }
+        text(winner + " wins!", 600, 300);
+        textSize(32);
+        text("Play Again", 625, 560);
+    }
+}
+
+// Function to format the time in milliseconds to mm:ss
+String formatTime(long milliseconds) {
+    long seconds = milliseconds / 1000;
+    long minutes = seconds / 60;
+    seconds = seconds % 60;
+    return String.format("%02d:%02d", minutes, seconds);
+}
+
+
 
 void mouseClicked() {
     int boardSize = 8;
@@ -26,6 +84,7 @@ void mouseClicked() {
     println("Translated to board coordinates: (" + col + ", " + row + ")");
     if(state==0){
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
+        long t = System.currentTimeMillis();
         Piece clickedPiece = b.get(col, row);
         drawBoard();
         if (clickedPiece != null) {
@@ -72,9 +131,11 @@ void mouseClicked() {
           
         if (b.turn % 2 == 0) {
             fill(255, 255, 255);
+            textSize(64);
             text("White's turn", 4, 64);
         } else {
             fill(0, 0, 0);
+            textSize(64);
             text("Black's turn", 1080, 64);
         }
         if (b.selected != null) {
