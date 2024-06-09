@@ -89,9 +89,5 @@ class Pawn extends Piece {
       return f;
     }
   }
-  
-    public boolean canMove(){
-    ArrayList<int[]> moves = this.validMoves();
-    return moves.isEmpty();
-  }
+
 }

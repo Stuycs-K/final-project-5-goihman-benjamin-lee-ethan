@@ -155,8 +155,5 @@ class King extends Piece {
 
     return moves;
   }
-    public boolean canMove(){
-    ArrayList<int[]> moves = this.validMoves();
-    return moves.isEmpty();
-  }
+
 }
