@@ -108,11 +108,7 @@ if(key=='p'){
   drawBoard();
   drawPieces();
 }
-if(key=='s'){
-   b.shuffle();
-   drawBoard();
-   drawPieces();
-}
+
 
 }
 
