@@ -322,6 +322,23 @@ void mouseClicked() {
         fill(0, 0, 0);
         text("Black's turn", 1080, 64);
       }
+      if(b.isStaleMate()){
+          winner = "No one";
+        fill(0, 102, 153);
+        rect(600, 500, 200, 100);
+        fill(0, 102, 153);
+        rect(300, 200, 800, 200);
+        textSize(48);
+        if (winner.equals("White")) {
+          fill(255, 255, 255);
+        } else {
+          fill(0, 0, 0);
+        }
+        text(winner + " wins!", 600, 300);
+        textSize(32);
+        text("Play Again", 625, 560);
+        state=1;
+      }
     }
   }
 }
