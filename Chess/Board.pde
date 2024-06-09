@@ -9,8 +9,70 @@ public class Board {
     public Board() {
         resetBoard();
     }
-    public void shuffle() {
+public void shuffle() {
+    Piece[][] originalBoard = new Piece[8][8];
+    for (int i = 0; i < 8; i++) {
+        System.arraycopy(board[i], 0, originalBoard[i], 0, 8);
     }
+
+    int attempts = 0;
+    boolean validShuffle = false;
+
+    while (!validShuffle && attempts < 100) {
+        // Perform a shuffle
+        for (int i = 0; i < 64; i++) {
+            int row1 = (int) random(8);
+            int col1 = (int) random(8);
+            int row2 = (int) random(8);
+            int col2 = (int) random(8);
+
+            Piece temp = board[row1][col1];
+            board[row1][col1] = board[row2][col2];
+            board[row2][col2] = temp;
+
+            // Update the pieces' positions
+            if (board[row1][col1] != null) {
+                board[row1][col1].move(col1, row1);
+            }
+            if (board[row2][col2] != null) {
+                board[row2][col2].move(col2, row2);
+            }
+        }
+
+        // Update kings' positions
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                if (board[row][col] instanceof King) {
+                    King king = (King) board[row][col];
+                    if (king.getColor()) {
+                        wKing = king;
+                    } else {
+                        bKing = king;
+                    }
+                }
+            }
+        }
+
+        // Check if the shuffle is valid
+        boolean whiteInCheckMate = isInCheckMate(true);
+        boolean blackInCheckMate = isInCheckMate(false);
+
+        if (!whiteInCheckMate && !blackInCheckMate) {
+            validShuffle = true;
+        } else {
+            // Restore the original board and try again
+            for (int i = 0; i < 8; i++) {
+                System.arraycopy(originalBoard[i], 0, board[i], 0, 8);
+            }
+            attempts++;
+        }
+    }
+
+    if (!validShuffle) {
+        println("Shuffle failed after 100 attempts.");
+    }
+}
+
     public void flip() {};
 
     public boolean isInCheckMate(boolean col) {
