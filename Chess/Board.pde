@@ -59,7 +59,7 @@ public class Board {
           else{
             PImage[] imgs = {loadImage("pieces/black-queen.png"),loadImage("pieces/black-rook.png"),loadImage("pieces/black-knight.png"),loadImage("pieces/black-bishop.png")};
             for(int i = 0; i < imgs.length; i++){
-              image(imgs[i], 4, 74 + i*103, squareSize, squareSize);
+              image(imgs[i], 1080, 74 + i*103, squareSize, squareSize);
             }
           }
           return true;
