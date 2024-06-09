@@ -20,52 +20,67 @@ void setup() {
 }
 
 void draw() {
-  long currentTime = System.currentTimeMillis();
-  if (currentTime - lTime >= 1000) {
+    long currentTime = System.currentTimeMillis();
+    if (currentTime - lTime >= 1000) {
+        if (b.turn % 2 == 0) {
+            wTimer.removeTime(1000);
+        } else {
+            bTimer.removeTime(1000);
+        }
+        lTime = currentTime;
+    }
+
+    noStroke();
+    fill(220, 220, 220);
+    rect(4, 100, 300, 40);
+    rect(1080, 100, 300, 40);
+    stroke(0);
+
+    textSize(64);
     if (b.turn % 2 == 0) {
-      wTimer.removeTime(1000);
+        fill(255, 255, 255);
+        text("White's turn", 4, 64);
     } else {
-      bTimer.removeTime(1000);
+        fill(0, 0, 0);
+        text("Black's turn", 1080, 64);
     }
-    lTime = currentTime;
-  }
 
-  noStroke();
-  fill(220, 220, 220);
-  rect(4, 100, 300, 40);
-  rect(1080, 100, 300, 40);
-  stroke(0);
-
-  fill(255, 255, 255);
-  textSize(32);
-  text("White Time: " + formatTime(wTimer.timeLeft()), 4, 128);
-  fill(0, 0, 0);
-  text("Black Time: " + formatTime(bTimer.timeLeft()), 1080, 128);
-
-  if (wTimer.timeLeft() == 0 || bTimer.timeLeft() == 0) {
-    state = 1;
-    winner = (wTimer.timeLeft() == 0) ? "Black" : "White";
-    fill(0, 102, 153);
-    rect(600, 500, 200, 100);
-    rect(300, 200, 800, 200);
-    textSize(48);
-    if (winner.equals("White")) {
-      fill(255, 255, 255);
-    } else {
-      fill(0, 0, 0);
-    }
-    text(winner + " wins!", 600, 300);
+    fill(255, 255, 255);
     textSize(32);
-    text("Play Again", 625, 560);
-  }
+    text("White Time: " + formatTime(wTimer.timeLeft()), 4, 128);
+    fill(0, 0, 0);
+    text("Black Time: " + formatTime(bTimer.timeLeft()), 1080, 128);
+
+    fill(255, 0, 0);
+    textSize(48);
+    text("-", 280, 128);
+    text("-", 1356, 128);
+
+    if (wTimer.timeLeft() == 0 || bTimer.timeLeft() == 0) {
+        state = 1;
+        winner = (wTimer.timeLeft() == 0) ? "Black" : "White";
+        fill(0, 102, 153);
+        rect(600, 500, 200, 100);
+        rect(300, 200, 800, 200);
+        textSize(48);
+        if (winner.equals("White")) {
+            fill(255, 255, 255);
+        } else {
+            fill(0, 0, 0);
+        }
+        text(winner + " wins!", 600, 300);
+        textSize(32);
+        text("Play Again", 625, 560);
+    }
 }
 
 String formatTime(long milliseconds) {
-  long seconds = milliseconds / 1000;
-  long minutes = seconds / 60;
-  seconds = seconds % 60;
-  return String.format("%02d:%02d", minutes, seconds);
+    long seconds = milliseconds / 1000;
+    long minutes = seconds / 60;
+    seconds = seconds % 60;
+    return String.format("%02d:%02d", minutes, seconds);
 }
+
 
 void mouseClicked() {
   int boardSize = 8;
@@ -76,6 +91,18 @@ void mouseClicked() {
   int row = (mouseY - offsetY) / squareSize;
   println("Mouse clicked at: (" + mouseX + ", " + mouseY + ")");
   println("Translated to board coordinates: (" + col + ", " + row + ")");
+  if (mouseX >= 280 && mouseX <= 320 && mouseY >= 100 && mouseY <= 160) {
+        if (wTimer.timeLeft() > 30000) {
+            wTimer.removeTime(30000);
+            bTimer.addTime(30000);
+        }
+    } else if (mouseX >= 1356 && mouseX <= 1396 && mouseY >= 100 && mouseY <= 160) {
+        if (bTimer.timeLeft() > 30000) {
+            bTimer.removeTime(30000);
+            wTimer.addTime(30000);
+        }
+    }
+  else{
   if (state == 0) {
     if (col >= 0 && col < boardSize && row >= 0 && row < boardSize) {
       long t = System.currentTimeMillis();
@@ -245,6 +272,7 @@ void mouseClicked() {
       }
     }
   }
+}
 }
 
 void drawBoard() {
