@@ -24,7 +24,7 @@ public class Board {
       return cM;
     }
     public boolean isStaleMate() {
-        return false;
+         return false;
     }
     
     

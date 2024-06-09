@@ -93,7 +93,10 @@ void mouseClicked() {
     }
   if(b.isInCheckMate(b.turn%2==0)){
       state=1;
-      winner=(b.turn-1)%2==0 ? "White" : "Black"; 
+      if (b.getKing(b.turn%2==0).isInCheck() == false){
+         winner = "No one";
+      }
+      else {winner=(b.turn-1)%2==0 ? "White" : "Black"; }
       fill(0, 102, 153);
       rect(600, 500, 200, 100);
       fill(0, 102, 153);

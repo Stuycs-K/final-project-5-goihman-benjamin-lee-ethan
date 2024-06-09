@@ -112,4 +112,4 @@ Created skeleton for other pieces
 
 ### 6/8/20224
 - Fixed castling through and in check
-- Stalemate option 
+- Stalemate included and impelemented in winner display after game end
