@@ -44,4 +44,9 @@ class Rook extends Piece {
 
     return endList;
   }
+  
+  public boolean canMove(){
+    ArrayList<int[]> moves = this.validMoves();
+    return moves.isEmpty();
+  }
 }
