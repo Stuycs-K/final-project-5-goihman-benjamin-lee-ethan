@@ -108,7 +108,12 @@ if(key=='p'){
   drawBoard();
   drawPieces();
 }
-
+if (key=='r'){
+  test=0;
+  b.resetBoard();
+  drawBoard();
+  drawPieces();
+}
 
 }
 
@@ -205,6 +210,23 @@ void mouseClicked() {
       println("Click out of board bounds.");
     }
     if (state == 0) {
+      if(b.isStaleMate()){
+          winner = "No one";
+        fill(0, 102, 153);
+        rect(600, 500, 200, 100);
+        fill(0, 102, 153);
+        rect(300, 200, 800, 200);
+        textSize(48);
+        if (winner.equals("White")) {
+          fill(255, 255, 255);
+        } else {
+          fill(0, 0, 0);
+        }
+        text(winner + " wins!", 600, 300);
+        textSize(32);
+        text("Play Again", 625, 560);
+        state=1;
+      }
       if (b.isInCheckMate(b.turn % 2 == 0)) {
         state = 1;
       if (b.getKing(b.turn%2==0).isInCheck() == false || b.fiftyMoves ==50){

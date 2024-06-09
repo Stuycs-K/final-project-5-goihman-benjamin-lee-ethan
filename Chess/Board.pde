@@ -25,9 +25,67 @@ public void shuffle() {
          }
       return cM;
     }
-    public boolean isStaleMate() {
-         return false;
+public boolean isStaleMate() {
+    ArrayList<Piece> wPieces = new ArrayList<>();
+    ArrayList<Piece> bPieces = new ArrayList<>();
+    
+    for (Piece[] r : board) {
+        for (Piece p : r) {
+            if (p != null) {
+                if (p.getColor()) {
+                    wPieces.add(p);
+                } else {
+                    bPieces.add(p);
+                }
+            }
+        }
     }
+
+    if (wPieces.size() == 1 && bPieces.size() == 1) {
+        return true;
+    }
+
+    if (wPieces.size() == 2 && bPieces.size() == 1) {
+        for (Piece p : wPieces) {
+            if (p.getName().equals("Bishop") || p.getName().equals("Knight")) {
+                return true;
+            }
+        }
+    }
+    if (bPieces.size() == 2 && wPieces.size() == 1) {
+        for (Piece p : bPieces) {
+            if (p.getName().equals("Bishop") || p.getName().equals("Knight")) {
+                return true;
+            }
+        }
+    }
+
+    if (wPieces.size() == 2 && bPieces.size() == 2) {
+        boolean wHasBishop = false;
+        boolean bHasBishop = false;
+        boolean wBishopColor = false;
+        boolean bBishopColor = false;
+
+        for (Piece p : wPieces) {
+            if (p.getName().equals("Bishop")) {
+                wHasBishop = true;
+                wBishopColor = (p.getCol() + p.getRow()) % 2 == 0;
+            }
+        }
+        for (Piece p : bPieces) {
+            if (p.getName().equals("Bishop")) {
+                bHasBishop = true;
+                bBishopColor = (p.getCol() + p.getRow()) % 2 == 0;
+            }
+        }
+        if (wHasBishop && bHasBishop && wBishopColor == bBishopColor) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
     
     
     public Piece get(int col, int row) {
