@@ -118,3 +118,8 @@ Created skeleton for other pieces
 - Stalemate included and impelemented in winner display after game end
 - Swapped black and white pieces so that white is on the bottom and that the pieces are in proper spot
 	- dependant on square colors too
+
+### 6/9/2024
+- Added 50 move rule draw
+	- increments every move unless pawn move or capture 
+	- when 50 moves game ends in draw
