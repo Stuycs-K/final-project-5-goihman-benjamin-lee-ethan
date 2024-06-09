@@ -69,6 +69,7 @@
 - Add gameover screen
 - Add promotion
 - Add timer
+- Allow to transfer time to another team
 ## Ethan Lee
 
 ### 5/22/2024
