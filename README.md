@@ -10,6 +10,7 @@ First select the piece you want to move. Then all avalaible moves will be shown.
 Then either make a move, and the piece will move as well as take if needed.
 You can click yourself to unselect or click another peice of your same color to select that piece instead
 For pawn promotion simply move your pawn to the end of board and all the options for what to promote to will be shown. To select one just click on it, after that the pawn will be promoted and the turn will advance.
+To give 30 seconds of time to the other play simply click your minus symbol. If you have less than 30 seconds left nothing will happen if you do click it.
 ## Major-ish changes to prototype
 - isInCheck moved to king class, as it is depedent on the color of the king and the king peice more than the board class
 - All isValidMove methods removed as we validMoves can be used instead
