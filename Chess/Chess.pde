@@ -111,6 +111,8 @@ if(key=='p'){
 if (key=='r'){
   test=0;
   b.resetBoard();
+  wTimer = new Timer(1500000);
+  bTimer = new Timer(1500000);
   drawBoard();
   drawPieces();
 }
