@@ -106,6 +106,11 @@ Created skeleton for other pieces
 - started king inCheck()
 
 ### 6/4/2024 
-- finished king isInCheck()
+- worked on king isInCheck()
   	- incorporated arraylist to check when another piece sees it
   	- Needs to be added to move
+
+### 6/8/20224
+- Fixed castling through and in check
+- Created alternative board setups to demonstrate different aspects of code
+- Created a menu to demonstrate piece options
