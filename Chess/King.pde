@@ -130,7 +130,7 @@ class King extends Piece {
           }
         }
         if (canCastle) {
-          if (tryMove(6, row, teamColor)) {
+          if (tryMove(5,row,teamColor) && tryMove(6, row, teamColor)) {
             int[] move = {6, row};
             moves.add(move);
           }
@@ -145,7 +145,7 @@ class King extends Piece {
           }
         }
         if (canCastle) {
-          if (tryMove(2, row, teamColor)) {
+          if (tryMove(2, row, teamColor) && tryMove(3,row,teamColor)) {
             int[] move = {2, row};
             moves.add(move);
           }
