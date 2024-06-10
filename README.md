@@ -16,7 +16,13 @@ Shortcuts:
 - click m to show checkmate works
 - click l to show castling works
 - click p to show promotion works
+- click f to set fiftyMoves to 48
+- click r to reset
 ## Major-ish changes to prototype
 - isInCheck moved to king class, as it is depedent on the color of the king and the king peice more than the board class
 - All isValidMove methods removed as we validMoves can be used instead
 - Add state and winner so that if the gameover screen is displayed we won't reset until you click on the restart box
+### Major bugs
+N/A
+### Video
+https://drive.google.com/file/d/1-ASrdUJl3oKWa2uq3LyNNeRFyJWiTkOk/view?usp=drive_link
