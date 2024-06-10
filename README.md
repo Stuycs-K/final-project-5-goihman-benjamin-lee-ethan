@@ -19,6 +19,7 @@ Shortcuts:
 - click p to show promotion works
 - click f to set fiftyMoves to 48
 - click r to reset
+To compile simply open the chess folder in processing and click play
 ## Major-ish changes to prototype
 - isInCheck moved to king class, as it is depedent on the color of the king and the king peice more than the board class
 - All isValidMove methods were removed as the validMoves method can be used instead
