@@ -4,9 +4,6 @@ class Pawn extends Piece {
     super(image, col, row, teamColor);
   }
 
-  public boolean promote(int col, int row) {
-    return true;
-  }
 
   public String getName() {
     return "Pawn";
