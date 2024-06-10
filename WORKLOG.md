@@ -70,6 +70,11 @@
 - Add promotion
 - Add timer
 - Allow to transfer time to another team
+
+### 6/9/2024
+- Fix stalmate issues
+- Add example boards
+
 ## Ethan Lee
 
 ### 5/22/2024
