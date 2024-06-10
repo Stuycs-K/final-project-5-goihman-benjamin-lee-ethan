@@ -4,19 +4,21 @@ THIS DOCUMENT IS REQUIRED
 ## Group Info
 Ben Goihman and Ethan Lee
 ## Overview
-This will be a normal chess game, MVP - Will have a working chess board with valid moves, although check or checkamte may not be done. For the full game we will have check and checkmate working, and if going well on hte sides where we reserved space we can add what pieces are taken and a timer
+This will be a normal chess game, MVP - Will have a working chess board with valid moves, although check or checkmate may not be done. For the full game we will have check and checkmate working, and if going well on hte sides where we reserved space we can add what pieces are taken and a timer
 ## Instructions
-First select the piece you want to move. Then all avalaible moves will be shown.
-Then either make a move, and the piece will move as well as take if needed.
-You can click yourself to unselect or click another peice of your same color to select that piece instead
-For pawn promotion simply move your pawn to the end of board and all the options for what to promote to will be shown. To select one just click on it, after that the pawn will be promoted and the turn will advance.
-To give 30 seconds of time to the other play simply click your minus symbol. If you have less than 30 seconds left nothing will happen if you do click it.
+First select the piece you want to move. Then all avalaible moves will be shown, identifiable with a bright green circle.
+Click again one of the squares containing a green circle to move or capture pieces.
+To unselect a piece, click on that piece.
+To select another piece, click on the desired piece.
+To promote a pawn, move that pawn to the end of the board. After doing so, you are presented with the four different pieces that you can click on. Click on the desired piece and the square where the pawn once was will now be the piece that you clicked. The turn advances.
+To give 30 seconds of time to the other player simply click your minus symbol located under the timer. If you have less than 30 seconds left nothing will happen if you click it. This is to allow your opponent more time to think so the game does not abruptly end.
 Shortcuts:
 - click c to show check works
 - click m to show checkmate works
 - click l to show castling works
 - click p to show promotion works
+- click r to reset the board and timer
 ## Major-ish changes to prototype
 - isInCheck moved to king class, as it is depedent on the color of the king and the king peice more than the board class
-- All isValidMove methods removed as we validMoves can be used instead
-- Add state and winner so that if the gameover screen is displayed we won't reset until you click on the restart box
+- All isValidMove methods were removed as the validMoves method can be used instead
+- Added different game states and a winner so that if the gameover screen is displayed the game won't reset until you click on the restart box
