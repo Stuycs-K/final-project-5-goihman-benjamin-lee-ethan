@@ -9,10 +9,6 @@ public class Board {
     public Board() {
         resetBoard();
     }
-public void shuffle() {
-}
-
-    public void flip() {};
 
     public boolean isInCheckMate(boolean col) {
       boolean cM = true;
